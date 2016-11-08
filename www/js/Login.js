@@ -86,7 +86,7 @@ function onDeviceReady() {
 	
 	//cordova.plugins.diagnostic.isLocationEnabled(successCallback, errorCallback);
 	
-	/*cordova.plugins.locationAccuracy.canRequest(function(canRequest){
+	cordova.plugins.locationAccuracy.canRequest(function(canRequest){
 		if(canRequest){
 			cordova.plugins.locationAccuracy.request(function (success){
 			//alert("Successfully requested accuracy: "+success.message);
@@ -99,7 +99,7 @@ function onDeviceReady() {
 				}
 			}, cordova.plugins.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY);
 		}
-	});*/
+	});
 	
 	
 
@@ -3253,8 +3253,8 @@ function LoginVera(email,pin){
 				  }
 				  else{
 					  
-				  	//window.location.href = "index.html";
-					alert("LOGGATO")
+				  	window.location.href = "index.html";
+					//alert("LOGGATO")
 				  
 				  }
 				  
@@ -3332,10 +3332,10 @@ function LoginFacebookVera(email,nome){
 				  localStorage.setItem("nomefoto", email.replace("@","").replace(".","").replace(".",""))
 				  
 				  
-				  alert(localStorage.getItem("nomefoto"))
+				  //alert(localStorage.getItem("nomefoto"))
 				  
 				  
-				  //window.location.href = "index.html";
+				  window.location.href = "index.html";
 				  
 				  }
 				  else{
