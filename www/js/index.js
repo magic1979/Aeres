@@ -22,6 +22,12 @@ onDeviceReady: function() {
 	if (localStorage.getItem("email") === null || localStorage.getItem("email")=="null" || typeof(localStorage.getItem("email")) == 'undefined' || localStorage.getItem("email")==0 || localStorage.getItem("email")=="") {
 		
 		window.location.href = "Login.html";
+		localStorage.setItem("vedo","0")
+	}
+	else
+	{
+		
+		localStorage.setItem("vedo","1")
 		
 	}
 	
@@ -36,16 +42,9 @@ receivedEvent: function(id) {
 	if (localStorage.getItem("email") === null || localStorage.getItem("email")=="null" || typeof(localStorage.getItem("email")) == 'undefined' || localStorage.getItem("email")==0 || localStorage.getItem("email")=="") {
 		
 		window.location.href = "Login.html";
-		
-		localStorage.setItem("vedo","0")
-		
+
 	}
-	else
-	{
-		
-		localStorage.setItem("vedo","1")
-		
-	}
+	
 	
 	//FOTO
 	//$("#imgutente").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("fotoprof")+"");
@@ -528,24 +527,13 @@ receivedEvent: function(id) {
 	}
 	else{
 		
+		$(".spinner").hide();
+		
 		setTimeout(function() {
 			$("#sasa").show();
 			$("#vedere").show();
-		}, 1000);
-		
-		$(".spinner").hide();
-		
-	}
-	
-	else{
-		
-		$("#led").html("<img src='img/ledrosso.png' width='25px'>");
-		$("#led5").html("<img src='img/ledrosso.png' width='25px'>");
-		
-		
-		setTimeout(function() {
 			window.location.href = "index.html";
-		}, 2500);
+		}, 1000);
 		
 	}
 	
