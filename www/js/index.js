@@ -303,7 +303,7 @@ receivedEvent: function(id) {
 			navigator.notification.confirm(
 			 'vuoi spegnere aermes?',  // message
 			 onConfirm2,              // callback to invoke with index of button pressed
-			spegniA,            // title
+			'Spegni',            // title
 			annullaA      // buttonLabels
 		    );
 							  
@@ -359,7 +359,7 @@ receivedEvent: function(id) {
 	//localStorage.setItem("lat", lat)
 	//localStorage.setItem("lng", lng)
 	
-	LoginVera()
+	//LoginVera()
 	
 	var lat = localStorage.getItem("lat");
 	var lng = localStorage.getItem("lng");
@@ -392,7 +392,7 @@ receivedEvent: function(id) {
 		
 		/////// GEO TRAKER IOS //////
 		
-		window.navigator.geolocation.getCurrentPosition(function(location) {
+		/*window.navigator.geolocation.getCurrentPosition(function(location) {
 			console.log('Location from Phonegap');
 		});
 		
@@ -443,7 +443,7 @@ receivedEvent: function(id) {
 						activityType: 'AutomotiveNavigation'
 						//debug: true
 						//stopOnTerminate: false
-		});
+		});*/
 
 		/////// FINE GEO TRAKER IOS//////
 		
@@ -670,13 +670,9 @@ receivedEvent: function(id) {
 	localStorage.setItem("okprima", "1")
 	
 	
-	//$("body").css("display", "none");
-	
-	//$("body").fadeIn(1500);
 
-	
 	//STELLE
-	if(parseFloat(localStorage.getItem("stelleautista"))==0){
+	/*if(parseFloat(localStorage.getItem("stelleautista"))==0){
 		$("#stelleautista").html("<img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'>")
 	}
 	
@@ -774,7 +770,7 @@ receivedEvent: function(id) {
 				   
 		return false;
 				   
-	});
+	});*/
 	
 	//_system
 	
