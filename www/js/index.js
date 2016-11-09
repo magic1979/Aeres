@@ -37,6 +37,14 @@ receivedEvent: function(id) {
 		
 		window.location.href = "Login.html";
 		
+		localStorage.setItem("vedo","0")
+		
+	}
+	else
+	{
+		
+		localStorage.setItem("vedo","1")
+		
 	}
 	
 	//FOTO
@@ -391,13 +399,17 @@ receivedEvent: function(id) {
 		playAudioA('successSound');
 		
 		
+		
 		startgps();
+		
+		if(localStorage.getItem("vedo")=="1"){
 		
 		setTimeout(function() {
 			$("#sasa").show();
-		}, 2500);
+			$("#vedere").show();
+		}, 1000);
 		
-		
+		}
 		
 		/////// GEO TRAKER IOS //////
 		
@@ -2597,6 +2609,7 @@ receivedEvent: function(id) {
             localStorage.setItem("perc_autista", "");
             localStorage.setItem("perc_pass", "");
             localStorage.setItem("id_utente", "");
+			localStorage.setItem("vedo", "0");
             
 			window.location.href = "Login.html";
             
