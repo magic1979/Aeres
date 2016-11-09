@@ -25,7 +25,7 @@ function onDeviceReady() {
 					 } else {
 					 //alert('Facebook login failed: ' + response.error);
 					 navigator.notification.alert(
-												  'Login Facebook fallita, riprova in seguito o fai login con Ridy',  // message
+												  'Login Facebook fallita, riprova in seguito o fai login con Email',  // message
 												  alertDismissed,         // callback
 												  'Login Facebook',            // title
 												  'OK'                  // buttonName
@@ -3475,7 +3475,7 @@ function iscriviti(){
 				if (item.Token == '1'){
 				  
 				  navigator.notification.alert(
-											   'Registrazione effettuata correttamente.',  // message
+											   'Registrazione effettuata correttamente, controlla la tua email per verificare il tuo nuovo account.',  // message
 											   alertDismissed,         // callback
 											   'Registrazione Eseguita',            // title
 											   'Done'                  // buttonName

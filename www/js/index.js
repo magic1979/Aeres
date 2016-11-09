@@ -526,6 +526,16 @@ receivedEvent: function(id) {
 		$(".spinner").hide();
 		
 	}
+	else{
+		
+		setTimeout(function() {
+			$("#sasa").show();
+			$("#vedere").show();
+		}, 1000);
+		
+		$(".spinner").hide();
+		
+	}
 	
 	else{
 		
