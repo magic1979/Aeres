@@ -76,7 +76,7 @@ receivedEvent: function(id) {
     successHandler,
     errorHandler,
     {
-        "senderID":"239377205014",
+        "senderID":"349503210724",
         "ecb":"onNotification"
     });	// required!  Aermes --> 349503210724
 	//}
@@ -2480,6 +2480,29 @@ receivedEvent: function(id) {
 	$(document).on("touchstart tap", "#ChiudiXX", function(e){
 				   
 				   $("#blobstart").show();
+				   
+				   /*navigator.notification.confirm(
+								'Vuoi disconnetterti come utente '+ localStorage.getItem("nick") +'',  // message
+								onConfirm,              // callback to invoke with index of button pressed
+								'Logout',            // title
+								'Conferma,Annulla'      // buttonLabels
+								);*/
+				   
+				   e.stopImmediatePropagation();
+				   
+				   e.preventDefault();
+				   
+				   return false;
+				   
+				   if ($.browser.iphone || $.browser.ipad) $(this).trigger('click');
+				   
+	});
+	
+	$(document).on("touchstart tap", "#dati", function(e){
+				   
+				   alert("dati")
+				   
+				   $("#logout").tap();
 				   
 				   /*navigator.notification.confirm(
 								'Vuoi disconnetterti come utente '+ localStorage.getItem("nick") +'',  // message
