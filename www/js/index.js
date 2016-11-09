@@ -301,7 +301,7 @@ receivedEvent: function(id) {
 	  //if(localStorage.getItem("pagina")=="1"){
 	
 			navigator.notification.confirm(
-			 chiudereA,  // message
+			 'vuoi spegnere aermes?',  // message
 			 onConfirm2,              // callback to invoke with index of button pressed
 			spegniA,            // title
 			annullaA      // buttonLabels
