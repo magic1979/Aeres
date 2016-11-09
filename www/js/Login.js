@@ -407,10 +407,10 @@ function onDeviceReady() {
 			if(localStorage.getItem("pagina")=="log"){
 								  
 				navigator.notification.confirm(
-					chiudereA,  // message
+					'vuoi chiudere aermes?',  // message
 					onConfirm2,              // callback to invoke with index of button pressed
-					spegniA,            // title
-					annullaA      // buttonLabels
+					'Spegni',            // title
+					'Spegni,Annulla'      // buttonLabels
 				);
 								  
 			}

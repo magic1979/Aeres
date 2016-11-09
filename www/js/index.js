@@ -15,6 +15,16 @@ bindEvents: function() {
 	// The scope of 'this' is the event. In order to call the 'receivedEvent'
 	// function, we must explicitly call 'app.receivedEvent(...);'
 onDeviceReady: function() {
+	
+	navigator.splashscreen.hide();
+	
+	
+	if (localStorage.getItem("email") === null || localStorage.getItem("email")=="null" || typeof(localStorage.getItem("email")) == 'undefined' || localStorage.getItem("email")==0 || localStorage.getItem("email")=="") {
+		
+		window.location.href = "Login.html";
+		
+	}
+	
 	app.receivedEvent('deviceready');
 },
 	// Update DOM on a Received Event
@@ -22,7 +32,6 @@ receivedEvent: function(id) {
     document.addEventListener("resume", onResume, false);
 	//document.addEventListener("pause", onPause, false);
 	
-	navigator.splashscreen.hide();
 	
 	if (localStorage.getItem("email") === null || localStorage.getItem("email")=="null" || typeof(localStorage.getItem("email")) == 'undefined' || localStorage.getItem("email")==0 || localStorage.getItem("email")=="") {
 		
@@ -301,10 +310,10 @@ receivedEvent: function(id) {
 	  //if(localStorage.getItem("pagina")=="1"){
 	
 			navigator.notification.confirm(
-			 'vuoi spegnere aermes?',  // message
+			 'vuoi chiudere aermes?',  // message
 			 onConfirm2,              // callback to invoke with index of button pressed
 			'Spegni',            // title
-			annullaA      // buttonLabels
+			'Spegni,Annulla'      // buttonLabels
 		    );
 							  
 	   //}
