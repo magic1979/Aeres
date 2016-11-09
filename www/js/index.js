@@ -76,9 +76,9 @@ receivedEvent: function(id) {
     successHandler,
     errorHandler,
     {
-        "senderID":"349503210724",
+        "senderID":"239377205014",
         "ecb":"onNotification"
-    });	// required!
+    });	// required!  Aermes --> 349503210724
 	//}
 	
 
