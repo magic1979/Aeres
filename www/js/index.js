@@ -405,8 +405,8 @@ receivedEvent: function(id) {
 		
 		setTimeout(function() {
 			$("#sasa").show();
-			$("#vedere").show();
-		}, 1000);
+			$("#vedere").fadeIn(1500);
+		}, 200);
 		
 		}
 		
@@ -2494,7 +2494,7 @@ receivedEvent: function(id) {
 	
 	$(document).on("touchstart tap", "#ChiudiXX", function(e){
 				   
-				   $("#blobstart").show();
+				   $("#blobstart").fadeIn(1500);
 				   
 				   /*navigator.notification.confirm(
 								'Vuoi disconnetterti come utente '+ localStorage.getItem("nick") +'',  // message
