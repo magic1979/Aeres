@@ -2494,7 +2494,9 @@ receivedEvent: function(id) {
 	
 	$(document).on("touchstart tap", "#ChiudiXX", function(e){
 				   
-				   $("#blobstart").fadeIn(1500);
+				   //$("#blobstart").fadeIn(1500);
+				   
+				   $("#logout").tap();
 				   
 				   /*navigator.notification.confirm(
 								'Vuoi disconnetterti come utente '+ localStorage.getItem("nick") +'',  // message
@@ -2515,7 +2517,7 @@ receivedEvent: function(id) {
 	
 	$(document).on("touchstart tap", "#dati", function(e){
 				   
-				   alert("dati")
+				   //alert("dati")
 				   
 				   $("#logout").tap();
 				   
