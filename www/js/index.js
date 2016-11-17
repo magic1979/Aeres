@@ -557,7 +557,6 @@ receivedEvent: function(id) {
 		
 		var options = new FileUploadOptions();
 		options.fileKey="file";
-		
 		options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
 		options.mimeType="image/jpeg";
 		
@@ -566,10 +565,13 @@ receivedEvent: function(id) {
 		params.value2 = "param";
 		
 		options.params = params;
+		options.chunkedMode = false;
 		
 		var ft = new FileTransfer();
-		ft.upload(imageURI, encodeURI("http://msop.it/uploadrides.php"), win, fail, options);
+		ft.upload(imageURI, "http://msop.it/uploadrides.php", win, fail, options);
+		
 	}
+	
 	
 	function win(r) {
 		console.log("Code = " + r.responseCode);
@@ -584,7 +586,6 @@ receivedEvent: function(id) {
 		$("#imguser").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("nomefoto")+".jpg");
 		$("#imgutente").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("nomefoto")+".jpg");
 		
-		 localStorage.setItem("fotoprof", localStorage.getItem("nomefoto"));
 		
 	}
 	
