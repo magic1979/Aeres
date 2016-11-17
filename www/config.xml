@@ -30,8 +30,8 @@
 		<preference name="KeyboardDisplayRequiresUserAction" value="true" />
 		<preference name="HideKeyboardFormAccessoryBar" value="true" />
 		<preference name="SuppressesIncrementalRendering" value="true" />
-		<preference name="android-minSdkVersion" value="11" />
-		<preference name="android-targetSdkVersion" value="11" />
+		<preference name="android-minSdkVersion" value="15" />
+		<preference name="android-targetSdkVersion" value="15" />
 		<preference name="android-installLocation" value="auto" />
 		<preference name="SplashScreen" value="splash" />
 		<preference name="SplashScreenDelay" value="10000" />
@@ -44,7 +44,6 @@
 		<preference name="disable-cursor" value="true" />
 		<preference name="StatusBarOverlaysWebView" value="true" />
 		<preference name="GapBetweenPages" value="0" />
-		<preference name="android-build-tool" value="gradle" />
 		<gap:platform name="android" />
 		<feature name="http://api.phonegap.com/1.0/battery"/>
 		<feature name="http://api.phonegap.com/1.0/geolocation"/>
@@ -130,9 +129,7 @@
 		<!--<plugin name="com.pbakondy.sim2" spec="1.0.16" source="pgb" />
 		<plugin name="com.simonmacdonald.telephonenumber" spec="1.0.0" source="pgb" />
 		<plugin name="de.appplant.cordova.plugin.background-mode" spec="0.6.4" source="pgb" />-->
-		<!--<plugin name="de.appplant.cordova.plugin.email-composer" spec="0.8.2" source="pgb" />-->
 		<gap:plugin name="cordova-plugin-email-composer" version="0.8.3" source="npm" />
-		<!--<plugin name="com.ionic.keyboard" spec="1.0.3" source="pgb" />-->
 		<gap:plugin  name="ionic-plugin-keyboard"  source="npm" version="1.0.7" />
 		<plugin name="cordova-plugin-cache" source="npm" />
 		<plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
