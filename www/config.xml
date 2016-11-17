@@ -76,6 +76,8 @@
 		
 		<plugin  name="ionic-plugin-keyboard"  source="npm" />
 		<plugin name="cordova-plugin-cache" source="npm" />
+		
+		<plugin name="cordova-plugin-mauron85-background-geolocation" source="npm"/>
 
 		-->
 		
@@ -83,7 +85,7 @@
 		<plugin name="cordova-plugin-datepicker" source="npm" />
 		<plugin name="cordova-plugin-insomnia" source="npm" />
 		<plugin name="cordova-plugin-email-composer" source="npm" />
-		<plugin name="cordova-plugin-mauron85-background-geolocation" source="npm"/>
+		<plugin  name="ionic-plugin-keyboard"  source="npm" />
 		<plugin name="cordova-plugin-request-location-accuracy" source="npm" />
 		
 		
