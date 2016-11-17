@@ -72,7 +72,7 @@
 		<plugin name="cordova-plugin-statusbar"           source="npm" />
 		<plugin name="cordova-plugin-vibration"           source="npm" />
 		<plugin name="cordova-plugin-whitelist"           source="npm" />
-		<plugin name="cordova.plugins.diagnostic" source="npm" />
+		<!--<plugin name="cordova.plugins.diagnostic" source="npm" />
 		<plugin name="cordova-plugin-email-composer" source="npm" />
 		<plugin  name="ionic-plugin-keyboard"  source="npm" />
 		<plugin name="cordova-plugin-cache" source="npm" />
@@ -81,8 +81,9 @@
 		<plugin name="cordova-plugin-statusbar" source="npm" />
 		<plugin name="cordova-plugin-mauron85-background-geolocation" source="npm"/>
 		<plugin name="cordova-plugin-request-location-accuracy" source="npm" />
-		<plugin name="cordova-plugin-pushplugin" source="npm" />
+		<plugin name="cordova-plugin-pushplugin" source="npm" />-->
 		
+	
 		<icon src="res/icon/ios/icon-57.png" gap:platform="ios" width="57" height="57" />
 		<icon src="res/icon/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
 		<icon src="res/icon/ios/icon-57-2x.png" gap:platform="ios" width="114" height="114" />
