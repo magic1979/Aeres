@@ -84,7 +84,7 @@ receivedEvent: function(id) {
 	var token
 
 	
-	/*pushNotification = window.plugins.pushNotification;
+	pushNotification = window.plugins.pushNotification;
 	
 	
 	pushNotification.register(
@@ -150,13 +150,13 @@ receivedEvent: function(id) {
 		}, 500);
 		
 		
-	}*/
+	}
 	
 	
 	////////// TASTIERA ///////////
 	
 	
-		/*window.addEventListener('native.keyboardhide', keyboardHideHandler);
+		window.addEventListener('native.keyboardhide', keyboardHideHandler);
   
 		function keyboardHideHandler(e){
 		  $("#btninizia").removeClass("divAA").addClass("div55");
@@ -166,7 +166,7 @@ receivedEvent: function(id) {
   
 		function keyboardShowHandler(e){
 			$("#btninizia").removeClass("div55").addClass("divAA");
-		}*/
+		}
 	
 	
 	///////// FINE TASTIERA ///////////
@@ -498,8 +498,17 @@ receivedEvent: function(id) {
 	
 	
 	
-	// FOTOCAMERA
+		// PER FOTOCAMERA //
 	
+	$(document).on("tap", "#prendifoto", function(e){
+				   
+		navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
+		destinationType: Camera.DestinationType.FILE_URI,
+		sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+		targetWidth: 200,
+		targetHeight: 200
+		});
+	});
 	
 	$(document).on("tap", "#scattafoto", function(e){
 				   
@@ -509,7 +518,7 @@ receivedEvent: function(id) {
 											   targetWidth: 200,
 											   targetHeight: 200
 											   });
-				   });
+	});
 	
 	
 	function Successo(imageData) {
@@ -549,7 +558,7 @@ receivedEvent: function(id) {
 	}
 	
 	function uploadPhoto(imageURI) {
-		var largeImage = document.getElementById('imgfoto');
+		var largeImage = document.getElementById('imguser');
 		// Unhide image elements
 		//
 		largeImage.style.display = 'block';
@@ -572,15 +581,14 @@ receivedEvent: function(id) {
 		options.params = params;
 		
 		var ft = new FileTransfer();
-		ft.upload(imageURI, encodeURI("http://www.msop.it/uploadrides.php"), win, fail, options);
+		ft.upload(imageURI, encodeURI("http://msop.it/uploadrides.php"), win, fail, options);
 	}
 	
 	function win(r) {
 		console.log("Code = " + r.responseCode);
 		console.log("Response = " + r.response);
 		console.log("Sent = " + r.bytesSent);
-		
-		alert(r.response);
+		//alert(r.response);
 		
 		localStorage.setItem("fotoprof", localStorage.getItem("nomefoto"));
 		
@@ -588,22 +596,13 @@ receivedEvent: function(id) {
 		$("#imguser").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("nomefoto")+".jpg");
 		$("#imgutente").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("nomefoto")+".jpg");
 		
-		//alert(localStorage.getItem("nomefoto"));
 	}
 	
 	function fail(error) {
-		
-		navigator.notification.alert(
-									 'Nessuna foto archiviata, riprova',  // message
-									 alertDismissed,         // callback
-									 'Foto',            // title
-									 'OK'                  // buttonName
-									 );
-		
-		//alert("An error has occurred: Code = " + error.code);
+		alert("An error has occurred: Code = " + error);
 	}
-	
-	//
+
+	/// FINE FOTOCAMERA ///
 	
 	
 	
