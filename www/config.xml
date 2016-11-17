@@ -142,14 +142,13 @@
 		<plugin name="cordova-plugin-request-location-accuracy" source="npm" />
 		<plugin name="cordova-plugin-pushplugin" source="npm" />
 		
-		<gap:config-file platform="android" parent="/manifest" mode="add" xmlns:android="http://schemas.android.com/apk/res/android">
-			<!--android:windowSoftInputMode="stateVisible"-->
+		<!--<gap:config-file platform="android" parent="/manifest" mode="add" xmlns:android="http://schemas.android.com/apk/res/android">
 			android:windowSoftInputMode="adjustResize"
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     		<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 			<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-		</gap:config-file>
+		</gap:config-file>-->
 		
 	</widget>
