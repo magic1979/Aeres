@@ -86,7 +86,7 @@ function onDeviceReady() {
 	
 	//cordova.plugins.diagnostic.isLocationEnabled(successCallback, errorCallback);
 	
-	cordova.plugins.locationAccuracy.canRequest(function(canRequest){
+	/*cordova.plugins.locationAccuracy.canRequest(function(canRequest){
 		if(canRequest){
 			cordova.plugins.locationAccuracy.request(function (success){
 			//alert("Successfully requested accuracy: "+success.message);
@@ -99,7 +99,7 @@ function onDeviceReady() {
 				}
 			}, cordova.plugins.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY);
 		}
-	});
+	});*/
 	
 	
 
@@ -3229,7 +3229,7 @@ function LoginVera(email,pin){
 				  localStorage.setItem("patente", item.patente)
 				  localStorage.setItem("RegToken", "");
 				  
-				  localStorage.setItem("nomefoto", email.replace("@","").replace(".","").replace(".",""))
+				  localStorage.setItem("nomefoto", "ae_"+email.replace("@","").replace(".","").replace(".",""))
 
 				  var contanick = item.nick.length;
 				  var nuovonick;
@@ -3329,7 +3329,7 @@ function LoginFacebookVera(email,nome){
 				  localStorage.setItem("patente", item.patente)
 				  localStorage.setItem("RegToken", "");
 				  
-				  localStorage.setItem("nomefoto", email.replace("@","").replace(".","").replace(".",""))
+				  localStorage.setItem("nomefoto", "ae_"+email.replace("@","").replace(".","").replace(".",""))
 				  
 				  
 				  //alert(localStorage.getItem("nomefoto"))
