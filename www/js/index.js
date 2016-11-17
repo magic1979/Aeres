@@ -489,7 +489,8 @@ receivedEvent: function(id) {
 				   
 				   navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
 											   destinationType: Camera.DestinationType.FILE_URI,
-											   sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+											   sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+											   mediaType: Camera.MediaType.ALLMEDIA,
 											   targetWidth: 200,
 											   targetHeight: 200
 											   });
