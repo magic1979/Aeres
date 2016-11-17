@@ -72,6 +72,16 @@
 		<plugin name="cordova-plugin-statusbar"           source="npm" />
 		<plugin name="cordova-plugin-vibration"           source="npm" />
 		<plugin name="cordova-plugin-whitelist"           source="npm" />
+		<plugin name="cordova.plugins.diagnostic" source="npm" />
+		<plugin name="cordova-plugin-email-composer" source="npm" />
+		<plugin  name="ionic-plugin-keyboard"  source="npm" />
+		<plugin name="cordova-plugin-cache" source="npm" />
+		<plugin name="cordova-plugin-insomnia" source="npm" />
+		<plugin name="cordova-plugin-datepicker" source="npm" />
+		<plugin name="cordova-plugin-statusbar" source="npm" />
+		<plugin name="cordova-plugin-mauron85-background-geolocation" source="npm"/>
+		<plugin name="cordova-plugin-request-location-accuracy" source="npm" />
+		<plugin name="cordova-plugin-pushplugin" source="npm" />
 		
 		<icon src="res/icon/ios/icon-57.png" gap:platform="ios" width="57" height="57" />
 		<icon src="res/icon/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
@@ -126,29 +136,13 @@
 			<allow-intent href="market:*" />
 		</platform>
 		
-		<plugin name="cordova.plugins.diagnostic" source="npm" />
-		<!--<plugin name="com.pbakondy.sim2" spec="1.0.16" source="pgb" />
-		<plugin name="com.simonmacdonald.telephonenumber" spec="1.0.0" source="pgb" />
-		<plugin name="de.appplant.cordova.plugin.background-mode" spec="0.6.4" source="pgb" />-->
-		<!--<plugin name="de.appplant.cordova.plugin.email-composer" spec="0.8.2" source="pgb" />-->
-		<plugin name="cordova-plugin-email-composer" source="npm" />
-		<!--<plugin name="com.ionic.keyboard" spec="1.0.3" source="pgb" />-->
-		<plugin  name="ionic-plugin-keyboard"  source="npm" />
-		<plugin name="cordova-plugin-cache" source="npm" />
-		<plugin name="cordova-plugin-insomnia" source="npm" />
-		<plugin name="cordova-plugin-datepicker" source="npm" />
-		<plugin name="cordova-plugin-statusbar" source="npm" />
-		<plugin name="cordova-plugin-mauron85-background-geolocation" source="npm"/>
-		<plugin name="cordova-plugin-request-location-accuracy" source="npm" />
-		<plugin name="cordova-plugin-pushplugin" source="npm" />
-		
-		<!--<gap:config-file platform="android" parent="/manifest" mode="add" xmlns:android="http://schemas.android.com/apk/res/android">
+		<gap:config-file platform="android" parent="/manifest" mode="add" xmlns:android="http://schemas.android.com/apk/res/android">
 			android:windowSoftInputMode="adjustResize"
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     		<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     		<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 			<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-		</gap:config-file>-->
+		</gap:config-file>
 		
 	</widget>
