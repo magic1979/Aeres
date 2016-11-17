@@ -489,7 +489,7 @@ receivedEvent: function(id) {
 				   
 				   navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
 											   destinationType: Camera.DestinationType.FILE_URI,
-											   sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+											   sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
 											   targetWidth: 200,
 											   targetHeight: 200
 											   });
@@ -504,7 +504,7 @@ receivedEvent: function(id) {
 				   
 		navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
 		destinationType: Camera.DestinationType.FILE_URI,
-		sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+		sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
 		targetWidth: 200,
 		targetHeight: 200
 		});
@@ -588,6 +588,7 @@ receivedEvent: function(id) {
 		console.log("Code = " + r.responseCode);
 		console.log("Response = " + r.response);
 		console.log("Sent = " + r.bytesSent);
+		
 		//alert(r.response);
 		
 		localStorage.setItem("fotoprof", localStorage.getItem("nomefoto"));
