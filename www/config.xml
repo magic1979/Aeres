@@ -88,7 +88,7 @@
 		<plugin name="cordova-plugin-email-composer" source="npm" />
 		<plugin  name="ionic-plugin-keyboard"  source="npm" />
 		<plugin name="cordova-plugin-request-location-accuracy" source="npm" />
-		<plugin name="cordova-plugin-mauron85-background-geolocation" spec="^2.2.0"/>
+		<plugin name="cordova-plugin-mauron85-background-geolocation" spec="2.2.5"/>
 		
 		
 		<icon src="res/icon/ios/icon-57.png" gap:platform="ios" width="57" height="57" />
