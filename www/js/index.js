@@ -47,7 +47,7 @@ receivedEvent: function(id) {
 	
 	
 	//FOTO
-	$("#imgutente").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("nomefoto")+".jpg");
+	$("#imgutente").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("fotoprof")+".jpg");
 	$("#nomecognome").html(localStorage.getItem("email"));
 	
 	
@@ -485,20 +485,6 @@ receivedEvent: function(id) {
 	
 	
 	
-	$(document).on("tap", "#prendifoto", function(e){
-				   
-				   navigator.camera.getPicture(uploadPhoto, onFail, { quality: 50,
-											   destinationType: Camera.DestinationType.FILE_URI,
-											   sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-											   mediaType: Camera.MediaType.ALLMEDIA,
-											   targetWidth: 200,
-											   targetHeight: 200
-											   });
-				   });
-	
-	
-	
-	
 		// PER FOTOCAMERA //
 	
 	$(document).on("tap", "#prendifoto", function(e){
@@ -536,7 +522,7 @@ receivedEvent: function(id) {
 	
 	function onFail(message) {
 		navigator.notification.alert(
-									 'Nessuna foto archiviata',  // message
+									 message,  // message
 									 alertDismissed,         // callback
 									 'Foto',            // title
 									 'OK'                  // buttonName
@@ -598,6 +584,8 @@ receivedEvent: function(id) {
 		$("#imguser").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("nomefoto")+".jpg");
 		$("#imgutente").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("nomefoto")+".jpg");
 		
+		 localStorage.setItem("fotoprof", localStorage.getItem("nomefoto"));
+		
 	}
 	
 	function fail(error) {
@@ -605,7 +593,6 @@ receivedEvent: function(id) {
 	}
 
 	/// FINE FOTOCAMERA ///
-	
 	
 	
 	$(document).on("touchstart", "#impostazioni", function(e){

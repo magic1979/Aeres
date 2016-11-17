@@ -3224,7 +3224,7 @@ function LoginVera(email,pin){
 				  localStorage.setItem("perc_autista", item.perc_aut);
 				  localStorage.setItem("perc_pass", item.perc_pass);
 				  localStorage.setItem("id_utente", item.id_utente);
-				  localStorage.setItem("fotoprof", item.foto);
+				  localStorage.setItem("fotoprof", item.foto.replace(".jpg","").replace(".png",""));
 				  
 				  localStorage.setItem("patente", item.patente)
 				  localStorage.setItem("RegToken", "");
