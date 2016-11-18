@@ -802,7 +802,7 @@ receivedEvent: function(id) {
 						cordova.plugins.Keyboard.close();
 					});
 					
-					}, 1000);
+					}, 500);
 				   
 				   // FINE //
 				   
@@ -2513,7 +2513,7 @@ receivedEvent: function(id) {
 				   // Chiamo funzione per dire che non sei autista
 				   $.ajax({
 						  type:"GET",
-						  url:"http://purplemiles.com/www2/check_noautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
+						  url:"http://msop.it/aermes/check_noautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
 						  contentType: "application/json",
 						  //data: {ID: "Lazio"}, LIMIT 10
 						  timeout: 7000,
@@ -2542,7 +2542,7 @@ receivedEvent: function(id) {
 				   // Chiamo funzione per dire che non sei autista
 				   $.ajax({
 						  type:"GET",
-						  url:"http://purplemiles.com/www2/check_noautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
+						  url:"http://msop.it/aermes/check_noautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
 						  contentType: "application/json",
 						  //data: {ID: "Lazio"}, LIMIT 10
 						  timeout: 7000,
@@ -2613,9 +2613,9 @@ receivedEvent: function(id) {
 				   
 	  if(connectionStatus=='online'){
 				   
-				   /*$.ajax({
+				   $.ajax({
 						  type:"GET",
-						  url:"http://purplemiles.com/www2/check_siautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
+						  url:"http://msop.it/aermes/check_siautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
 						  contentType: "application/json",
 						  //data: {ID: "Lazio"}, LIMIT 10
 						  timeout: 7000,
@@ -2634,7 +2634,7 @@ receivedEvent: function(id) {
 						  error: function(){
 
 						  },
-						  dataType:"jsonp"});*/
+						  dataType:"jsonp"});
 				   
 				   setTimeout(function() {
 							  
@@ -2935,7 +2935,7 @@ receivedEvent: function(id) {
 		   // Chiamo funzione per dire che non sei autista
 				   $.ajax({
 						  type:"GET",
-						  url:"http://purplemiles.com/www2/check_noautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
+						  url:"http://msop.it/aermes/check_noautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
 						  contentType: "application/json",
 						  //data: {ID: "Lazio"}, LIMIT 10
 						  timeout: 7000,
@@ -4127,7 +4127,7 @@ function cambiah() {
 	// Chiamo funzione per dire che non sei autista
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_noautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
+		   url:"http://msop.it/aermes/check_noautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -4937,7 +4937,7 @@ function resetta1(focus) {
 	
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_richiesta_autistaV4.php?email="+ localStorage.getItem("email") +"&latitudine="+ localStorage.getItem("lat") +"&longitudine="+ localStorage.getItem("lng") +"&id_autista="+ localStorage.getItem("id_autista") +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"",
+		   url:"http://msop.it/aermes/check_richiesta_autistaV4.php?email="+ localStorage.getItem("email") +"&latitudine="+ localStorage.getItem("lat") +"&longitudine="+ localStorage.getItem("lng") +"&id_autista="+ localStorage.getItem("id_autista") +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"},
 		   timeout: 7000,
@@ -5646,7 +5646,7 @@ function timer(){
 									
 									$.ajax({
 										   type:"GET",
-										   url:"http://purplemiles.com/www2/check_richiesta_autistaV4.php?email="+ localStorage.getItem("email") +"&latitudine="+ localStorage.getItem("lat") +"&longitudine="+ localStorage.getItem("lng") +"&id_autista="+ localStorage.getItem("id_autista") +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"",
+										   url:"http://msop.it/aermes/check_richiesta_autistaV4.php?email="+ localStorage.getItem("email") +"&latitudine="+ localStorage.getItem("lat") +"&longitudine="+ localStorage.getItem("lng") +"&id_autista="+ localStorage.getItem("id_autista") +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"",
 										   contentType: "application/json",
 										   //data: {ID: "Lazio"}, LIMIT 10
 										   timeout: 7000,
@@ -8045,7 +8045,7 @@ function casa(){
 	// Chiamo funzione per dire che non sei autista
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_noautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
+		   url:"http://msop.it/aermes/check_noautista.php?id_autista="+ localStorage.getItem("id_autista") +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
