@@ -2230,6 +2230,48 @@ receivedEvent: function(id) {
 	});
 	
 	
+	
+	/// ANDROID X TASTIERA ////
+	
+	$('#nome').focus(function(){
+			myScroll.scrollToElement("#imguser", "1s");
+	 });
+					 
+	$('#cognome').focus(function(){
+		myScroll.scrollToElement("#imguser", "1s");
+	});
+	
+	$('#cell').focus(function(){
+		myScroll.scrollToElement("#imguser", "1s");
+	});
+	
+	$('#veicolo').focus(function(){
+		myScroll.scrollToElement("#imguser", "1s");
+	});
+	
+	$('#targa').focus(function(){
+		myScroll.scrollToElement("#imguser", "1s");
+	});
+	
+	$('#patente').focus(function(){
+		myScroll.scrollToElement("#imguser", "1s");
+	});
+	
+	$('#patentemese').focus(function(){
+		myScroll.scrollToElement("#imguser", "1s");
+	});
+					 
+	$(document).on("touchmove", function(e){
+		 $('#soldini').blur();
+		 $('#noteautista').blur();
+					 
+		cordova.plugins.Keyboard.close();
+	});*/
+	
+	/////// FINE ///////
+	
+	
+	
 	$(document).on("tap", "#legenda1", function(e){
 				   
 		var ref = window.open('http://pm.purplemiles.com/guida/', '_blank', 'location=no');
