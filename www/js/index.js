@@ -758,32 +758,34 @@ receivedEvent: function(id) {
 				   
 				   // ANDROID TASTIERA //
 				   
+				   setTimeout(function() {
+		
 					$('#nome').focus(function(){
-							myScroll6.scrollToElement("#imguser", "1s");
+							myScroll6.scrollToElement("#prendifoto", "1s");
 					 });
 									 
 					$('#cognome').focus(function(){
-						myScroll6.scrollToElement("#imguser", "1s");
+						myScroll6.scrollToElement("#nome", "1s");
 					});
 					
 					$('#cell').focus(function(){
-						myScroll6.scrollToElement("#imguser", "1s");
+						myScroll6.scrollToElement("#cognome", "1s");
 					});
 					
 					$('#veicolo').focus(function(){
-						myScroll6.scrollToElement("#imguser", "1s");
+						myScroll6.scrollToElement("#cell", "1s");
 					});
 					
 					$('#targa').focus(function(){
-						myScroll6.scrollToElement("#imguser", "1s");
+						myScroll6.scrollToElement("#veicolo", "1s");
 					});
 					
 					$('#patente').focus(function(){
-						myScroll6.scrollToElement("#imguser", "1s");
+						myScroll6.scrollToElement("#targa", "1s");
 					});
 					
 					$('#patentemese').focus(function(){
-						myScroll6.scrollToElement("#imguser", "1s");
+						myScroll6.scrollToElement("#patente", "1s");
 					});
 									 
 					$(document).on("touchmove", function(e){
@@ -797,6 +799,8 @@ receivedEvent: function(id) {
 									 
 						cordova.plugins.Keyboard.close();
 					});
+					
+					}, 1000);
 				   
 				   // FINE //
 				   
