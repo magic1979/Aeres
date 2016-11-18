@@ -48,6 +48,9 @@ receivedEvent: function(id) {
 	
 	//FOTO
 	$("#imgutente").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("fotoprof")+".jpg");
+	$("#imgfoto").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("fotoprof")+".jpg");
+	$("#imguser").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("fotoprof")+".jpg");
+	
 	$("#nomecognome").html(localStorage.getItem("email"));
 	
 	
@@ -605,8 +608,8 @@ receivedEvent: function(id) {
 				   
 				   if(connectionStatus=='online'){
 				   
-				     $("#imgfoto").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("nomefoto")+".jpg");
-					 $("#imguser").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("nomefoto")+".jpg");
+				     $("#imgfoto").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("fotoprof")+".jpg");
+					 $("#imguser").attr("src","http://www.msop.it/public/rides/"+localStorage.getItem("fotoprof")+".jpg");
 				   
 				   }
 				   
