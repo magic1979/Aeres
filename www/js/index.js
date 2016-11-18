@@ -758,10 +758,12 @@ receivedEvent: function(id) {
 				   
 				   // ANDROID TASTIERA //
 				   
+				   var myScroll6;
+				   
 				   setTimeout(function() {
 		
 					$('#nome').focus(function(){
-							myScroll6.scrollToElement("#prendifoto", "1s");
+						myScroll6.scrollToElement("#prendifoto", "1s");
 					 });
 									 
 					$('#cognome').focus(function(){
@@ -812,7 +814,7 @@ receivedEvent: function(id) {
 				   return false;
 				   
 				   if ($.browser.iphone || $.browser.ipad) $(this).trigger('click');
-				   });
+	 });
 	
 	
 	
@@ -2278,51 +2280,6 @@ receivedEvent: function(id) {
 				   
 	});
 	
-	
-	
-	/// ANDROID X TASTIERA ////
-	
-	$('#nome').focus(function(){
-			myScroll6.scrollToElement("#imguser", "1s");
-	 });
-					 
-	$('#cognome').focus(function(){
-		myScroll6.scrollToElement("#imguser", "1s");
-	});
-	
-	$('#cell').focus(function(){
-		myScroll6.scrollToElement("#imguser", "1s");
-	});
-	
-	$('#veicolo').focus(function(){
-		myScroll6.scrollToElement("#imguser", "1s");
-	});
-	
-	$('#targa').focus(function(){
-		myScroll6.scrollToElement("#imguser", "1s");
-	});
-	
-	$('#patente').focus(function(){
-		myScroll6.scrollToElement("#imguser", "1s");
-	});
-	
-	$('#patentemese').focus(function(){
-		myScroll6.scrollToElement("#imguser", "1s");
-	});
-					 
-	$(document).on("touchmove", function(e){
-		 $('#nome').blur();
-		 $('#cognome').blur();
-		 $('#cell').blur();
-		 $('#veicolo').blur();
-		 $('#targa').blur();
-		 $('#patente').blur();
-		 $('#patentemese').blur();
-					 
-		cordova.plugins.Keyboard.close();
-	});
-	
-	/////// FINE ///////
 	
 	
 	
