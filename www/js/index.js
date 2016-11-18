@@ -2266,7 +2266,7 @@ receivedEvent: function(id) {
 		 $('#noteautista').blur();
 					 
 		cordova.plugins.Keyboard.close();
-	});*/
+	});
 	
 	/////// FINE ///////
 	
