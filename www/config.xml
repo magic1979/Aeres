@@ -94,6 +94,8 @@
 		<plugin name="cordova-plugin-request-location-accuracy" source="npm" />
 		<!--<plugin name="cordova-plugin-mauron85-background-geolocation" version="2.2.0"/>-->
 		
+		<plugin name="cordova-screenshot" source="npm" />
+		
 		
 		<icon src="res/icon/ios/icon-57.png" gap:platform="ios" width="57" height="57" />
 		<icon src="res/icon/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
