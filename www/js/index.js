@@ -491,23 +491,13 @@ receivedEvent: function(id) {
 	
 	$(document).on("tap", "#stampa", function(e){
 				   
-		navigator.screenshot.save(function(error,res){
-											 if(error){
+	navigator.screenshot.save(function(error,res){
+		if(error){
             console.error(error);
-											 }else{
-            console.log('ok',res.filePath);
-											 
-            var MEsuccess = function(msg){
-               alert(msg);
-            };
-											 
-            var MEerror = function(err){
-			   alert(err);
-            };
-											 
-            saveImageToPhone(res.filePath, MEsuccess, MEerror);
-											 }
-		},'jpg',90);
+		}else{			 
+            uploadPhoto(res.filePath);
+		}
+	},'jpg',90);
 				   
 	});
 	
@@ -536,10 +526,8 @@ receivedEvent: function(id) {
 		options.params = params;
 		
 		var ft = new FileTransfer();
-		ft.upload(imageURI, encodeURI("http://msop.it/uploadrides.php"), win2, fail, options);
+		ft.upload(imageURI, "http://msop.it/uploadrides.php", win, fail, options);
 		
-		
-		alert(imageURI)
 	}
 	
 	
@@ -555,7 +543,7 @@ receivedEvent: function(id) {
 	
 	
 	
-		// PER FOTOCAMERA //
+	// PER FOTOCAMERA //
 	
 	$(document).on("tap", "#prendifoto", function(e){
 				   
