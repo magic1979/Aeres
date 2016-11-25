@@ -487,6 +487,75 @@ receivedEvent: function(id) {
 	});
 	
 	
+	// SCREEN SHOT ///
+	
+	$(document).on("tap", "#stampa", function(e){
+				   
+		navigator.screenshot.save(function(error,res){
+											 if(error){
+            console.error(error);
+											 }else{
+            console.log('ok',res.filePath);
+											 
+            var MEsuccess = function(msg){
+               alert(msg);
+            };
+											 
+            var MEerror = function(err){
+			   alert(err);
+            };
+											 
+            saveImageToPhone(res.filePath, MEsuccess, MEerror);
+											 }
+		},'jpg',90);
+				   
+	});
+	
+	
+	function saveImageToPhone(imageURI, success, error) {
+		var canvas, context, imageDataUrl, imageData;
+		//var img = new Image();
+		
+		var largeImage = document.getElementById('imgutente');
+
+		largeImage.style.display = 'block';
+
+		largeImage.src = imageURI;
+		
+		
+		var options = new FileUploadOptions();
+		options.fileKey="file";
+		
+		options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+		options.mimeType="image/jpeg";
+		
+		var params = {};
+		params.value1 = "piantinaAndroid";
+		params.value2 = "param";
+		
+		options.params = params;
+		
+		var ft = new FileTransfer();
+		ft.upload(imageURI, "http://msop.it/uploadrides.php", win2, fail, options);
+		
+		
+		alert(imageURI)
+	}
+	
+	
+	// FINE //
+	
+	function win2(r) {
+		console.log("Code = " + r.responseCode);
+		console.log("Response = " + r.response);
+		console.log("Sent = " + r.bytesSent);
+		
+		//alert(r.response);
+		
+		
+	}
+	
+	
 	
 		// PER FOTOCAMERA //
 	
