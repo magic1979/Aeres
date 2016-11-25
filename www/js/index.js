@@ -536,7 +536,7 @@ receivedEvent: function(id) {
 		options.params = params;
 		
 		var ft = new FileTransfer();
-		ft.upload(imageURI, "http://msop.it/uploadrides.php", win2, fail, options);
+		ft.upload(imageURI, encodeURI("http://msop.it/uploadrides.php"), win2, fail, options);
 		
 		
 		alert(imageURI)
@@ -551,8 +551,6 @@ receivedEvent: function(id) {
 		console.log("Sent = " + r.bytesSent);
 		
 		//alert(r.response);
-		
-		
 	}
 	
 	
