@@ -1124,57 +1124,22 @@ function onDeviceReady() {
 	
 	if(localStorage.getItem("lingua")=="it"){
 		
-		var alertattenzione = localStorage.getItem("sessionAttenzione")
+		/*var alertattenzione = localStorage.getItem("sessionAttenzione")
 		var chiudereA = ""+localStorage.getItem("sessionChiudere")+""
 		var spegniA = ""+localStorage.getItem("sessionSpegni")+""
-		var annullaA = ""+localStorage.getItem("sessionSpegni")+","+localStorage.getItem("sessionSannulla")+""
+		var annullaA = ""+localStorage.getItem("sessionSpegni")+","+localStorage.getItem("sessionSannulla")+""*/
 		var profiloA = "Profilo"
 		
 	}
-	else if(localStorage.getItem("lingua")=="en"){
-		
-		var alertattenzione = localStorage.getItem("sessionAttenzione")
-		var chiudereA = ""+localStorage.getItem("sessionChiudere")+""
-		var spegniA = ""+localStorage.getItem("sessionSpegni")+""
-		var annullaA = ""+localStorage.getItem("sessionSpegni")+","+localStorage.getItem("sessionSannulla")+""
-		var profiloA = "Profile"
-		
-	}
-	else if(localStorage.getItem("lingua")=="fr"){
-		
-		var alertattenzione = localStorage.getItem("sessionAttenzione")
-		var chiudereA = ""+localStorage.getItem("sessionChiudere")+""
-		var spegniA = ""+localStorage.getItem("sessionSpegni")+""
-		var annullaA = ""+localStorage.getItem("sessionSpegni")+","+localStorage.getItem("sessionSannulla")+""
-		var profiloA = "Profil"
-		
-	}
-	else if(localStorage.getItem("lingua")=="es"){
-		
-		var alertattenzione = localStorage.getItem("sessionAttenzione")
-		var chiudereA = ""+localStorage.getItem("sessionChiudere")+""
-		var spegniA = ""+localStorage.getItem("sessionSpegni")+""
-		var annullaA = ""+localStorage.getItem("sessionSpegni")+","+localStorage.getItem("sessionSannulla")+""
-		var profiloA = "Perfil"
-		
-	}
-	else{
-		var alertattenzione = localStorage.getItem("sessionAttenzione")
-		var chiudereA = ""+localStorage.getItem("sessionChiudere")+""
-		var spegniA = ""+localStorage.getItem("sessionSpegni")+""
-		var annullaA = ""+localStorage.getItem("sessionSpegni")+","+localStorage.getItem("sessionSannulla")+""
-		var profiloA = "Profilo"
-	}
-	
 	
 	
 	document.addEventListener('backbutton', function(e) {
 							  
 	        navigator.notification.confirm(
-			chiudereA,  // message
+			'Vuoi chiudere Aermes?',  // message
 			 onConfirm2,              // callback to invoke with index of button pressed
-			spegniA,            // title
-			annullaA      // buttonLabels
+			'Spegni',            // title
+			'Spegni,Annulla'      // buttonLabels
 			);
 							  
 							  
