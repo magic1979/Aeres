@@ -47,6 +47,11 @@ function onDeviceReady() {
 		
 	////////// FINE TASTIERA ////////////////
 	
+	document.ontouchmove = function(e){
+		e.preventDefault();
+	}
+
+	
 	
 	$('#veicolo').on('change', function(){
 		 var $this = $(this),
@@ -103,7 +108,7 @@ function onDeviceReady() {
                                  if(results.rows.item(i).id_traduzione == "h7quando"){
                                  h7quando = results.rows.item(i).italiano.replace("P0011", "'");
                                  
-                                 localStorage.setItem("sessionQuando",h7quando)
+                                 localStorage.setItem("sessionQuando","Data")
                                  
                                  }
 								 
@@ -117,7 +122,7 @@ function onDeviceReady() {
 								 if(results.rows.item(i).id_traduzione == "h7destinazione"){
 								 h7destinazione = results.rows.item(i).italiano.replace("P0011", "'");
 								 
-								 localStorage.setItem("sessionArrivo",h7destinazione)
+								 localStorage.setItem("sessionArrivo","Destinazione")
 								 
 								 }
 								 
@@ -218,7 +223,7 @@ function onDeviceReady() {
                                  if(results.rows.item(i).id_traduzione == "h7partenza"){
                                  h7partenza = results.rows.item(i).italiano.replace("P0011", "'");
 								 
-								 localStorage.setItem("sessionPartenza",h7partenza)
+								 localStorage.setItem("sessionPartenza","Punto di ritiro")
                                  
                                  }
 								 
@@ -1224,7 +1229,7 @@ function onDeviceReady() {
                   $(".spinner").show();
                   $.ajax({
                          type:"GET",
-                         url:"http://purplemiles.com/www2/check_prendicitta.php?nazione="+$value+"",
+                         url:"http://msop.it/aermes/check_prendicitta.php?nazione="+$value+"",
                          contentType: "application/json",
                          timeout: 7000,
                          jsonp: 'callback',
@@ -1400,6 +1405,7 @@ function onDeviceReady() {
 	
 	IDPage = getParameterByName('id');
 	ODPage = getParameterByName('od');
+	
 	
 	$(document).on("tap", "#imgcalendario", function(e){
 		mostracal();
@@ -1680,8 +1686,8 @@ function onDeviceReady() {
 				   $("#s_arrivo").hide();
 				   $("#s_partenza2").show();
 				   
-				   $("#da1").html("<img src='img/ico_start3.png' width='55px'>");
-				   $("#a1").html("<img src='img/ico_finish1.png' width='45px'>");
+				   $("#da1").html("<img src='icone/Pin.png' width='55px'>");
+				   $("#a1").html("<img src='icone/Flag.png' width='45px'>");
 				  
 				   /*if(screen.width < 768){
 				     $("#da1").html("<img src='img/ico_start3.png' width='55px'>");
@@ -1779,8 +1785,8 @@ function onDeviceReady() {
 			window.clearInterval(i);
 		}
 				   
-		$("#piu").html("<img src='img/ico_plus1.png' width='45px'>");
-		$("#anteprima").html("<img src='img/ico_go1.png' width='45px'>");
+		$("#piu").html("<img src='img/ico_go1.png' width='45px'>");
+		$("#anteprima").html("<img src='icone/informazioni.png' width='45px'>");
                    
         ripetiseleziona();
 				   
@@ -1788,7 +1794,7 @@ function onDeviceReady() {
 		localStorage.setItem("destinazione", document.getElementById("destinazione").value);
 				   
 				   
-		 $("#fuso3").html(localStorage.getItem("fuso") + "," + localStorage.getItem("citta"));
+		 //Z$("#fuso3").html(localStorage.getItem("fuso") + "," + localStorage.getItem("citta"));
 				   
 				   
 		prendicittaid(localStorage.getItem("citta"))
@@ -1904,7 +1910,7 @@ function onDeviceReady() {
 			localStorage.setItem("scroller","0")
 			localStorage.setItem("nobanner","0")
 					   
-			prendibanner()
+			//prendibanner()
 				   
 				   /*if(screen.width < 768){
 				   $("#quando").html("<img src='img/ico_quando1.png' width='45px'>");
@@ -1942,7 +1948,7 @@ function onDeviceReady() {
 				   
 			$.mobile.changePage( "#home4", { transition: "slide", changeHash: false });
 			//$.mobile.changePage ($("#home4"));
-			$("#spinner4").show();
+			//$("#spinner4").show();
 				   
 				   /*if(screen.width < 768){
 				   $("#quando").html("<img src='img/ico_quando1.png' width='45px'>");
@@ -2060,6 +2066,9 @@ function onDeviceReady() {
 				   document.getElementById("viale3").value = document.getElementById("viale").value;
 				   document.getElementById("destinazione3").value = document.getElementById("destinazione").value;
 				   
+				   document.getElementById("cod_sicurezza").value = cod_sicurezza;
+				   
+				   
 				   
 				   if (document.getElementById("viale").value == "") {
 					   
@@ -2132,7 +2141,7 @@ function onDeviceReady() {
 				   }*/
 
 
-				   $("#back3").hide();
+				   //$("#back3").hide();
 				   
 				   
 				   localStorage.setItem("viale", document.getElementById("viale").value);
@@ -2162,7 +2171,7 @@ function onDeviceReady() {
 					 // $("#posticipata").html(" <b><font color='#cc33cc'>Quando:</font></b> " + document.getElementById("datacal3").value + "<br> <b><font color='#cc33cc'>Ora:</font></b>" + document.getElementById("orario3").value + " " + document.getElementById("minuti3").value + "<br>");
 				   }
 				   
-				   prendimezzi()
+				   //prendimezzi()
 				   
 				   setTimeout(function() {
 							  
@@ -2184,22 +2193,84 @@ function onDeviceReady() {
 				   $.mobile.changePage ($("#home3"));
 				   
 				   
-				   
-				   $('#notepass').focus(function(){
+				   $('#grandezza').focus(function(){
 
 						myScroll2.scrollToElement("#bluetooth", "1s");
 				   });
 				   
+				   $('#emaildestinatario').focus(function(){
+
+						myScroll2.scrollToElement("#grandezza", "1s");
+				   });
+				   
 				   
 				   $(document).on("touchmove", function(e){
-								  $('#notepass').blur();
+						$('#grandezza').blur();
 								  
-								  cordova.plugins.Keyboard.close();
+						cordova.plugins.Keyboard.close();
 					});
 				   
 				   
 				   
-				    //$("#offerte").tap();
+				   // calcolo costo spedizione
+				   
+				   var indirizzo = document.getElementById("viale").value.replace("'", "")
+				   var indirizzo2 = document.getElementById("destinazione").value.replace("'", "")
+				   
+				   
+				   //alert("http://msop.it/aermes/check_costo.php?indirizzo="+indirizzo+"&indirizzo2="+indirizzo2+"")
+				   
+				   $(".spinner").show();
+				   $.ajax({
+						  type:"GET",
+						  url:"http://msop.it/aermes/check_costo.php?indirizzo="+indirizzo+"&indirizzo2="+indirizzo2+"",
+						  contentType: "application/json",
+						  //data: {email:email,pin:pin},
+						  timeout: 7000,
+						  jsonp: 'callback',
+						  crossDomain: true,
+						  success:function(result){
+						  
+						  
+						  $.each(result, function(i,item){
+								 
+								 if(item.Token=="1"){
+								  var Punita = (Number(item.distanza).toFixed(2) * 0.35).toFixed(2);
+								  $("#costocalcolato").html(Punita+" &euro;");
+								  document.getElementById("costocalcolato").value = Punita;
+								  //$("#costocalcolato").html("OK");
+								 }
+								 else{
+								  $("#costocalcolato").html("0");
+								 }
+						  });
+
+						  
+						  $(".spinner").hide();
+						  
+						  },
+						  error: function(){
+						  $(".spinner").hide();
+						  
+						  $("#costocalcolato").html("0");
+						  
+						  $("#led").html("<img src='img/ledrosso.png' width='25px'>");
+						  $("#led2").html("<img src='img/ledrosso.png' width='25px'>");
+						  $("#led4").html("<img src='img/ledrosso.png' width='25px'>");
+						  
+						  navigator.notification.alert(
+													   'Errore di rete, riprova in seguito',  // message
+													   alertDismissed,         // callback
+													   'Attenzione',            // title
+													   'OK'                  // buttonName
+													   );
+						  
+						  },
+						  dataType:"jsonp"});
+				   
+				   
+				   
+				   //$("#offerte").tap();
 				   
 				   e.stopImmediatePropagation();
 				   
@@ -2235,7 +2306,7 @@ function onDeviceReady() {
 		
 	     onResume();
 				   
-				   /*if(screen.width < 768){
+		/*if(screen.width < 768){
 				   $("#da1").html("<img src='img/ico_start1.png' width='45px'>");
 				   $("#a1").html("<img src='img/ico_finish3.png' width='55px'>");
 				   }
@@ -2252,7 +2323,6 @@ function onDeviceReady() {
 				   }*/
 		 
 		 
-				   
 		setTimeout(function() {
 			  $("#ricarica").tap();
 	    },2000);
@@ -2361,8 +2431,8 @@ function onDeviceReady() {
 				   $("#s_arrivo").show();
 				   
 				   
-				   $("#da1").html("<img src='img/ico_start1.png' width='45px'>");
-				   $("#a1").html("<img src='img/ico_finish3.png' width='55px'>");
+				   $("#da1").html("<img src='icone/Pin.png' width='45px'>");
+				   $("#a1").html("<img src='icone/Flag.png' width='55px'>");
 				   
 				   
 				   /*if(screen.width < 768){
@@ -2429,7 +2499,94 @@ function onDeviceReady() {
 	}
 	
 	
-	$(document).on("touchstart", "#back3", function(e){
+	$(document).on("touchstart", "#back33", function(e){
+				   
+				   document.getElementById("viale7").value = document.getElementById("viale").value;
+				   document.getElementById("destinazione7").value = document.getElementById("destinazione").value;
+				   
+				   
+				   if (document.getElementById("viale7").value == "") {
+				   
+				   
+				   navigator.notification.alert(
+												alertstart,  // message
+												alertDismissed,         // callback
+												alertattenzione,            // title
+												'OK'                  // buttonName
+												);
+				   
+				   $("#da").tap();
+				   
+				   return;
+				   }
+				   
+				   if (document.getElementById("destinazione7").value == "") {
+				   
+				   
+				   navigator.notification.alert(
+												alertend,  // message
+												alertDismissed,         // callback
+												alertattenzione,            // title
+												'OK'                  // buttonName
+												);
+				   
+				   $("#a1").tap();
+				   
+				   return;
+				   }
+				   
+				   
+				   
+				   localStorage.setItem("viale", document.getElementById("viale").value);
+				   localStorage.setItem("destinazione", document.getElementById("destinazione").value);
+				   
+				   
+				   
+				   localStorage.setItem("datacal", document.getElementById("datacal").value);
+				   localStorage.setItem("orario", document.getElementById("Orario").value);
+				   localStorage.setItem("minuti", document.getElementById("Minuti").value);
+				   
+				   
+				   
+				   if(document.getElementById("datacal").value==""){
+				   document.getElementById("datacal7").value = "ORA";
+				   }
+				   else{
+				   document.getElementById("datacal7").value = document.getElementById("datacal").value;
+				   document.getElementById("orario7").value = document.getElementById("Orario").value;
+				   document.getElementById("minuti7").value = document.getElementById("Minuti").value;
+				   }
+				   
+				  
+				   var emaildestinatario = document.getElementById("emaildestinatario").value;
+				   var grandezza = document.getElementById("grandezza").value;
+				   var cod_sicurezza = document.getElementById("cod_sicurezza").value;
+				   
+				   
+				   
+		if (emaildestinatario == "") {
+				   
+			navigator.notification.alert(
+					'inserire un email del destinatario',  // message
+					alertDismissed,         // callback
+					'Email Destinatario',            // title
+					'OK'                  // buttonName
+			);
+			return;
+		}
+				   
+				   if (grandezza == "") {
+				   
+				   navigator.notification.alert(
+												'Specificare la grandezza del pacco',  // message
+												alertDismissed,         // callback
+												'Pacco',            // title
+												'OK'                  // buttonName
+												);
+				   return;
+				   }
+				   
+				   
 		$("#spinner7").show();
 				   
 				   var today = new Date();
@@ -2469,7 +2626,8 @@ function onDeviceReady() {
 				   var rimorchio = document.getElementById("rimorchio").value.replace("'", "")
 				   var bluetooth = document.getElementById("bluetooth").value.replace("'", "")
 				   var note = document.getElementById("notepass").value.replace("'", "")
-				   var veicolo = document.getElementById("veicolo7").value.replace("'", "")
+				   var veicolo = document.getElementById("veicolo").value.replace("'", "")
+				   var costocalcolato = document.getElementById("costocalcolato").value.replace("'", "")
 				   
                    
                    if(localStorage.getItem("lingua")=="it"){
@@ -2502,16 +2660,21 @@ function onDeviceReady() {
                    var richiestaA = "Request"
                    
                    }
+				   
+				   
+				   
                    
 		
 		if(document.getElementById("datacal7").value == "ORA"){
 				   
+		//alert("1")
 				   
-		//alert("http://purplemiles.com/www2/check_richiesta5.php?email="+ localStorage.getItem("emailpass") +"&indirizzo="+ indirizzo +"&indirizzo2="+ destinazione +"&passeggeri="+ passeggeri +"&animali="+ animali +"&fumatori="+ fumatori +"&meno18="+ meno18 +"&disabili="+ disabili +"&bambini="+ bambini +"&wifi="+ wifi +"&portapacchi="+ portapacchi +"&rimorchio="+ rimorchio +"&bluetooth="+ bluetooth +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"")
+		//alert("http://msop.it/aermes/check_richiesta5.php?email="+ localStorage.getItem("emailpass") +"&indirizzo="+ indirizzo +"&indirizzo2="+ destinazione +"&passeggeri="+ passeggeri +"&animali="+ animali +"&fumatori="+ fumatori +"&meno18="+ meno18 +"&disabili="+ disabili +"&bambini="+ bambini +"&wifi="+ wifi +"&portapacchi="+ portapacchi +"&rimorchio="+ rimorchio +"&bluetooth="+ bluetooth +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"&note="+ note +"&veicolo="+ veicolo +"&emaildestinatario="+ emaildestinatario +"&grandezza="+ grandezza +"&cod_sicurezza="+ cod_sicurezza +"&costo_servizio="+ costocalcolato +"")
+				   
                    
 		$.ajax({
 			   type:"GET",
-			   url:"http://purplemiles.com/www2/check_richiesta5.php?email="+ localStorage.getItem("emailpass") +"&indirizzo="+ indirizzo +"&indirizzo2="+ destinazione +"&passeggeri="+ passeggeri +"&animali="+ animali +"&fumatori="+ fumatori +"&meno18="+ meno18 +"&disabili="+ disabili +"&bambini="+ bambini +"&wifi="+ wifi +"&portapacchi="+ portapacchi +"&rimorchio="+ rimorchio +"&bluetooth="+ bluetooth +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"&note="+ note +"&veicolo="+ veicolo +"",
+			   url:"http://msop.it/aermes/check_richiesta5.php?email="+ localStorage.getItem("emailpass") +"&indirizzo="+ indirizzo +"&indirizzo2="+ destinazione +"&passeggeri="+ passeggeri +"&animali="+ animali +"&fumatori="+ fumatori +"&meno18="+ meno18 +"&disabili="+ disabili +"&bambini="+ bambini +"&wifi="+ wifi +"&portapacchi="+ portapacchi +"&rimorchio="+ rimorchio +"&bluetooth="+ bluetooth +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"&note="+ note +"&veicolo="+ veicolo +"&emaildestinatario="+ emaildestinatario +"&grandezza="+ grandezza +"&cod_sicurezza="+ cod_sicurezza +"&costo_servizio="+ costocalcolato +"",
 			   contentType: "application/json",
 			   timeout: 7000,
 			   jsonp: 'callback',
@@ -2615,15 +2778,16 @@ function onDeviceReady() {
 			   dataType:"jsonp"});
 			}
 			else{
-				   //alert("http://purplemiles.com/www2/check_richiesta_pos.php?email="+ localStorage.getItem("emailpass") +"&indirizzo="+ document.getElementById("viale7").value +"&indirizzo2="+ document.getElementById("destinazione7").value +"&data="+ document.getElementById("datacal7").value +"&ora="+ document.getElementById("Orario").value +"&minuti="+ document.getElementById("Minuti").value +"&passeggeri="+ passeggeri +"&animali="+ animali +"&fumatori="+ fumatori +"&meno18="+ meno18 +"&disabili="+ disabili +"&bambini="+ bambini +"&wifi="+ wifi +"&portapacchi="+ portapacchi +"&rimorchio="+ rimorchio +"&bluetooth="+ bluetooth +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"&note="+ note +"&veicolo="+ veicolo +"")
 				   
+				   //alert("2")
 				   
-					//alert(document.getElementById("datacal7").value)
+				   //alert("http://msop.it/aermes/check_richiesta_pos.php?email="+ localStorage.getItem("emailpass") +"&indirizzo="+ document.getElementById("viale7").value +"&indirizzo2="+ document.getElementById("destinazione7").value +"&data="+ document.getElementById("datacal7").value +"&ora="+ document.getElementById("Orario").value +"&minuti="+ document.getElementById("Minuti").value +"&passeggeri="+ passeggeri +"&animali="+ animali +"&fumatori="+ fumatori +"&meno18="+ meno18 +"&disabili="+ disabili +"&bambini="+ bambini +"&wifi="+ wifi +"&portapacchi="+ portapacchi +"&rimorchio="+ rimorchio +"&bluetooth="+ bluetooth +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"&note="+ note +"&veicolo="+ veicolo +"&emaildestinatario="+ emaildestinatario +"&grandezza="+ grandezza +"&cod_sicurezza="+ cod_sicurezza +"&costo_servizio="+ costocalcolato +"")
 				   
+				   //http://msop.it/aermes/check_richiesta_pos.php?email=magico@yopmail.com&indirizzo=Via di saponara, 2 Roma&indirizzo2=Via Ostiense, 5 Roma&data=Dec 13 2016&ora=11&minuti=00&fuso=154&passeggeri=01&animali=no&fumatori=no&meno18=no&disabili=no&bambini=no&wifi=no&portapacchi=no&rimorchio=no&bluetooth=no&note=domani modify&veicolo=Autovettura
 				   
 				   $.ajax({
 						  type:"GET",
-						  url:"http://purplemiles.com/www2/check_richiesta_pos.php?email="+ localStorage.getItem("emailpass") +"&indirizzo="+ document.getElementById("viale7").value +"&indirizzo2="+ document.getElementById("destinazione7").value +"&data="+ document.getElementById("datacal7").value +"&ora="+ document.getElementById("Orario").value +"&minuti="+ document.getElementById("Minuti").value +"&passeggeri="+ passeggeri +"&animali="+ animali +"&fumatori="+ fumatori +"&meno18="+ meno18 +"&disabili="+ disabili +"&bambini="+ bambini +"&wifi="+ wifi +"&portapacchi="+ portapacchi +"&rimorchio="+ rimorchio +"&bluetooth="+ bluetooth +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"&note="+ note +"&veicolo="+ veicolo +"",
+						  url:"http://msop.it/aermes/check_richiesta_pos.php?email="+ localStorage.getItem("emailpass") +"&indirizzo="+ document.getElementById("viale7").value +"&indirizzo2="+ document.getElementById("destinazione7").value +"&data="+ document.getElementById("datacal7").value +"&ora="+ document.getElementById("Orario").value +"&minuti="+ document.getElementById("Minuti").value +"&passeggeri="+ passeggeri +"&animali="+ animali +"&fumatori="+ fumatori +"&meno18="+ meno18 +"&disabili="+ disabili +"&bambini="+ bambini +"&wifi="+ wifi +"&portapacchi="+ portapacchi +"&rimorchio="+ rimorchio +"&bluetooth="+ bluetooth +"&fuso="+ localStorage.getItem("citta") +"&ora_cell="+ localStorage.getItem("ora_cell") +"&note="+ note +"&veicolo="+ veicolo +"&emaildestinatario="+ emaildestinatario +"&grandezza="+ grandezza +"&cod_sicurezza="+ cod_sicurezza +"&costo_servizio="+ costocalcolato +"",
 						  contentType: "application/json",
 						  timeout: 7000,
 						  jsonp: 'callback',
@@ -2964,9 +3128,9 @@ function onDeviceReady() {
 		}
 		
 		
-		$.ajax({
+		/*$.ajax({
 						  type:"GET",
-						  url:"http://purplemiles.com/www2/check_Mezzi_Lingua.php?mezzo="+document.getElementById("veicolo11").value+"",
+						  url:"http://msop.it/aermes/check_Mezzi_Lingua.php?mezzo="+document.getElementById("veicolo11").value+"",
 						  contentType: "application/json",
 						  //data: {email:email,pin:pin},
 						  timeout: 7000,
@@ -3004,11 +3168,12 @@ function onDeviceReady() {
 						  $("#veicolo77").html("&nbsp;&nbsp;<b><font color='#cc33cc'>Veicolo </font></b><br>&nbsp;&nbsp; "+ veicolando +"");
 						  
 						  },
-						  dataType:"jsonp"});
+						  dataType:"jsonp"});*/
 				   
 				   
 		document.getElementById("viale7").value = document.getElementById("viale").value;
 		document.getElementById("destinazione7").value = document.getElementById("destinazione").value;
+				   
 				   
 		if (document.getElementById("viale7").value == "") {
 			
@@ -3040,45 +3205,7 @@ function onDeviceReady() {
 			return;
 	    }
 				   
-				   
-				   /*if(screen.width < 768){
-				   $("#quando").html("<img src='img/ico_quando1.png' width='45px'>");
-				   $("#da").html("<img src='img/ico_start1.png' width='45px'>");
-				   $("#a2").html("<img src='img/ico_finish1.png' width='45px'>");
-				   $("#piu").html("<img src='img/ico_plus3.png' width='55px'>");
-				   $("#anteprima").html("<img src='img/ico_go1.png' width='45px'>");
-				   $("#offerte").html("<img src='img/ico_offerte1.png' width='45px'>");
-				   
-				   }
-				   else
-				   {
-				   if(screen.width > 719){
-				   
-				   $("#quando7").attr("width", "90px");
-				   $("#da7").attr("width", "90px");
-				   $("#a27").attr("width", "90px");
-				   $("#piu7").attr("width", "90px");
-				   $("#anteprima7").attr("width", "110px");
-				   $("#offerte7").attr("width", "90px");
-				   
-				   $("#spazioipad7").attr("height","70");
-				   
-				   }
-				   else{
-				   $("#quando").html("<img src='img/ico_quando1.png' width='45px'>");
-				   $("#da").html("<img src='img/ico_start1.png' width='45px'>");
-				   $("#a2").html("<img src='img/ico_finish1.png' width='45px'>");
-				   $("#piu").html("<img src='img/ico_plus3.png' width='55px'>");
-				   $("#anteprima").html("<img src='img/ico_go1.png' width='45px'>");
-				   $("#offerte").html("<img src='img/ico_offerte1.png' width='45px'>");
-				   
-
-				   }
-				   }*/
-
-				   
-		
-		$("#back3").show();
+				
 				   
 		localStorage.setItem("viale", document.getElementById("viale").value);
 		localStorage.setItem("destinazione", document.getElementById("destinazione").value);
@@ -3488,7 +3615,18 @@ function onDeviceReady() {
 			  var watchID = navigator.geolocation.watchPosition(gpsonSuccess, onError2, {maximumAge:600000, timeout:80000, enableHighAccuracy: true});
 			 //var watchID = navigator.geolocation.getCurrentPosition(gpsonSuccess, gpsonError, {timeout: 30000, enableHighAccuracy: true, maximumAge: 90000 });
 		
+			var num1 = Math.floor((Math.random() * 20) + 1);
+			var num2 = Math.floor((Math.random() * 20) + 1);
+			var num3 = Math.floor((Math.random() * 20) + 1);
+			var num4 = Math.floor((Math.random() * 20) + 1);
+			var num5 = Math.floor((Math.random() * 20) + 1);
+			var num6 = Math.floor((Math.random() * 20) + 1);
+			var num7 = Math.floor((Math.random() * 20) + 1);
+			var num8 = Math.floor((Math.random() * 20) + 1);
 		
+			var cod_sicurezza = "AJ"+num1+""+num2+""+num3+""+num4+""+num5+""+num6+""+"L";
+		
+			localStorage.setItem("cod_sicurezza", cod_sicurezza)
 		
 		/////// GEO TRAKER IOS//////
 		
@@ -3550,7 +3688,7 @@ function onDeviceReady() {
 		
 		/////// GEO TRAKER ANDROID//////
 		
-		window.navigator.geolocation.getCurrentPosition(function(location) {
+		/*window.navigator.geolocation.getCurrentPosition(function(location) {
 			console.log('Location from Phonegap');
 		});
 		
@@ -3561,7 +3699,7 @@ function onDeviceReady() {
 			
 			$.ajax({
 				   type:"GET",
-				   url:"http://purplemiles.com/www2/check_richiesta_passeggeroV3.php?email="+ localStorage.getItem("emailpass") +"&id_passeggero="+ localStorage.getItem("id_pass") +"&latitudine="+ location.latitude +"&longitudine="+ location.longitude +"&trakka=1&bck=1",
+				   url:"http://msop.it/aermes/check_richiesta_passeggeroV3.php?email="+ localStorage.getItem("emailpass") +"&id_passeggero="+ localStorage.getItem("id_pass") +"&latitudine="+ localStorage.getItem("lat3") +"&longitudine="+ localStorage.getItem("lng3") +"&trakka=1&bck=1",
 				   contentType: "application/json",
 				   timeout: 7000,
 				   jsonp: 'callback',
@@ -3598,7 +3736,7 @@ function onDeviceReady() {
 			notificationIconLarge: 'mappointer_large',
 			notificationIconSmall: 'mappointer_small'
 			
-		});
+		});*/
 		
 		
 		/////// FINE GEO TRAKER ANDROID//////////
@@ -3640,10 +3778,10 @@ function CenterControl(controlDiv, map) {
 	controlUI.style.borderRadius = '0px';
 	controlUI.style.boxShadow = '0 0px 0px rgba(0,0,0,.3)';
 	controlUI.style.cursor = 'pointer';
-	controlUI.style.marginBottom = '10px';
+	controlUI.style.marginBottom = '0px';
 	controlUI.style.textAlign = 'center';
 	controlUI.title = 'Click to recenter the map';
-	controlUI.style.height = '30px';
+	controlUI.style.height = '100px';
 	controlUI.style.width = '100%';
 	//controlUI.style.display = 'none';
 	controlDiv.appendChild(controlUI);
@@ -3653,14 +3791,15 @@ function CenterControl(controlDiv, map) {
 	controlText.style.color = 'rgb(25,25,25)';
 	controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
 	controlText.style.fontSize = '12px';
-	controlText.style.lineHeight = '15px';
-	controlText.style.paddingLeft = '5px';
-	controlText.style.paddingRight = '5px';
+	controlText.style.lineHeight = '10px';
+	controlText.style.paddingLeft = '0px';
+	controlText.style.paddingRight = '0px';
 	//controlText.innerHTML = '<table width="100%" class="xalto" border="0"><tr><td align="right">&nbsp;<br><br><br></td></tr></table><table width="100%" border="0" valign="center" align="center" ><tr><td align="center" ><a id="quando" href="#"><img src="img/ico_quando1.png" width="45px"></a></td><td align="center" ><a id="da1" href="#"><img src="img/ico_start3.png" width="55px"></a></td><td align="center" ><a id="a1" href="#"><img src="img/ico_finish1.png" width="45px"></a></td><td align="center" ><a id="piu" href="#"><img src="img/ico_plus1.png" width="45px"></a></td><td align="center" ><a id="anteprima" href="#" ><img src="img/ico_anteprima1.png" width="45px"></td><td align="center" ><a id="offerte" href="#" ><img src="img/ico_offerte1.png" width="45px"></a></td></tr><tr><td align="center" valign="center" colspan="6"><table border="0" width="100%" align="center" valign="center" class="bannertbl"><tr><td align="center" valign="center">&nbsp;<br></td></tr></table><table border="0" width="100%" align="center" valign="center" class="bannertbl2"><tr><td align="center" valign="center">&nbsp;<font size="4" color="#fff"><div id="s_partenza2" valign="center"><b>Scegli la partenza</b><br></div><div id="s_arrivo" style="display:none" valign="center"><b>Scegli l\'arrivo</b></div></font><br></td></tr></table><table border="0" width="100%" align="right" valign="top" class="bannertbl3"><tr><td align="right" valign="top">&nbsp;&nbsp;<a id="XX3" href="#" rel="external"><img src="img/ico_close1.png" width="45px"></a></td></tr></table>';
 	
+	//<td align="center" ><a id="anteprima" href="#" ><img src="icone/informazioni.png" width="45px"></td>
 	
 	//if(screen.width < 768){
-		controlText.innerHTML = '<br><table width="100%" border="0" valign="center" align="center" ><tr><td align="center" ><a id="quando" href="#"><img src="img/ico_quando1.png" width="45px"></a></td><td align="center" ><a id="da1" href="#"><img src="img/ico_start3.png" width="55px"></a></td><td align="center" ><a id="a1" href="#"><img src="img/ico_finish1.png" width="45px"></a></td><td align="center" ><a id="piu" href="#"><img src="img/ico_plus1.png" width="45px"></a></td><td align="center" ><a id="anteprima" href="#" ><img src="img/ico_go1.png" width="45px"></td><td align="center" ><a id="offerte" href="#" ><img src="img/ico_offerte1.png" width="45px"></a></td></tr><tr><td align="center" valign="center" colspan="6">';
+	controlText.innerHTML = '<br><table width="100%" border="0" valign="center" align="center" class="div23"><tr><td width="100%" align="center"  colspan="6"><br><font color="#fff"><b>SPEDISCI PACCO</b></td></tr><tr><td align="center" >&nbsp;&nbsp;<a id="quando" href="#"><img src="icone/Clock.png" width="45px"></a>&nbsp;&nbsp;</td><td align="center" >&nbsp;&nbsp;<a id="da1" href="#"><img src="icone/Pin.png" width="55px"></a>&nbsp;&nbsp;</td><td align="center" >&nbsp;&nbsp;<a id="a1" href="#"><img src="icone/Flag.png" width="45px"></a>&nbsp;&nbsp;</td><td align="center" >&nbsp;&nbsp;<a id="piu" href="#"><img src="img/ico_go1.png" width="45px"></a>&nbsp;&nbsp;</td><td align="center" >&nbsp;&nbsp;<a id="offerte" href="#" ><img src="icone/informazioni.png" width="45px"></a>&nbsp;&nbsp;</td></tr><tr><td align="center" valign="center" colspan="6">&nbsp;</td></tr><tr><td align="center" valign="center" colspan="6"><font color="#fff">Punto di ritiro del pacco</font></td></tr></table>';
 	/*}
 	else
 	{
@@ -4047,7 +4186,7 @@ function onPause() {
    }
    
    //bgGeo.start();
-   backgroundGeolocation.start();
+   //backgroundGeolocation.start();
 }
 
 
@@ -4224,7 +4363,7 @@ function resetta1(focus) {
 	
 
     //if(localStorage.getItem("destination")==0){
-	  var icon = new google.maps.MarkerImage("img/passeggero.png", null, null, null, new google.maps.Size(30,50));
+	  var icon = new google.maps.MarkerImage("img/passeggero.png", null, null, null, new google.maps.Size(50,50));
 	/*}
 	else{
 	  var icon = new google.maps.MarkerImage("img/pin.png", null, null, null, new google.maps.Size(30,50));
@@ -4386,7 +4525,7 @@ function resetta1(focus) {
 		
 		//if(localStorage.getItem("tappato")=="0"){
 		//if (isTabHolded){
-			var icon = new google.maps.MarkerImage("img/passeggero.png", null, null, null, new google.maps.Size(30,50));
+			var icon = new google.maps.MarkerImage("img/passeggero.png", null, null, null, new google.maps.Size(50,50));
 			
 			marker2.setMap(null);
 			
@@ -4461,7 +4600,7 @@ function inviopasseggero(come){
 	
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_inviopasseggero.php?id="+ localStorage.getItem("id_richiesta") +"&note=note&importo="+ coming +"&id_autista="+ localStorage.getItem("id_autista") +"",
+		   url:"http://msop.it/aermes/check_inviopasseggero.php?id="+ localStorage.getItem("id_richiesta") +"&note=note&importo="+ coming +"&id_autista="+ localStorage.getItem("id_autista") +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -4519,7 +4658,7 @@ function controllaofferte(){
     $("#spinner").show();
     $.ajax({
            type:"GET",
-           url:"http://purplemiles.com/www2/check_richiesta_passeggeroV3.php?email="+ localStorage.getItem("emailpass") +"&id_passeggero="+ localStorage.getItem("id_pass") +"&latitudine="+ localStorage.getItem("lat") +"&longitudine="+ localStorage.getItem("lng") +"&bck=0",
+           url:"http://msop.it/aermes/check_richiesta_passeggeroV3.php?email="+ localStorage.getItem("emailpass") +"&id_passeggero="+ localStorage.getItem("id_pass") +"&latitudine="+ localStorage.getItem("lat") +"&longitudine="+ localStorage.getItem("lng") +"&bck=0",
            contentType: "application/json",
            //data: {ID: "Lazio"}, LIMIT 10
            timeout: 7000,
@@ -4598,13 +4737,7 @@ function vediofferte(){
 	var tempistica;
 	var conta = 0;
 	
-	if(localStorage.getItem("nobanner")=="0"){
-	
-	   prendibanner()
-	}
-	
-	
-	
+
 	localStorage.setItem("tempor","0")
 	
 	for(i=0; i<10000; i++)
@@ -4612,13 +4745,11 @@ function vediofferte(){
 		window.clearInterval(i);
 	}
 	
-	
-	//alert();
-	
+	$("#spinner4").show();
 
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_richiesta_passeggeroV3.php?email="+ localStorage.getItem("emailpass") +"&id_passeggero="+ localStorage.getItem("id_pass") +"&latitudine="+ localStorage.getItem("lat3") +"&longitudine="+ localStorage.getItem("lng3") +"&trakka=1&bck=0",
+		   url:"http://msop.it/aermes/check_richiesta_passeggeroV3.php?email="+ localStorage.getItem("emailpass") +"&id_passeggero="+ localStorage.getItem("id_pass") +"&latitudine="+ localStorage.getItem("lat3") +"&longitudine="+ localStorage.getItem("lng3") +"&trakka=1&bck=0",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -4631,35 +4762,14 @@ function vediofferte(){
 		   $("#led4").html("<img src='img/ledverde.png' width='25px'>");
 		   
 		   if(localStorage.getItem("risppass")===JSON.stringify(result)){
-			   $("#spinner4").hide();
+
 		   }
 		   else{
 		    $("#offerte4").html("");
-		    $("#spinner4").hide();
+
 		    localStorage.setItem("risppass", JSON.stringify(result))
 		   
-		   //
-		   
-		   /*var myScroll2;
-		   
-		   myScroll2 = new IScroll('#wrapper',{
-								   click: true,
-								   probeType:2,
-								   bounceTime: 250,
-								   bounceEasing: 'quadratic',
-								   mouseWheel:false,
-								   scrollbars:true,
-								   fadeScrollbars:true,
-								   interactiveScrollbars:false
-								   });
-		   
-		   setTimeout (function(){
-					   myScroll2.refresh();
-					   }, 1500);*/
-		   
-		   //In arrivo tra : "+ item.tempo +" minuti
-		   
-		   //
+
 		   
 		    $.each(result, function(i,item){
 
@@ -4712,14 +4822,14 @@ function vediofferte(){
 				  if(item.accettata==1){
 				  
 				    if(item.cell!=""){
-				    $("#offerte4").append("<br><table width='90%' border='0' valign='center' align='center' class='tabella'><tr><td align='right' width='60%'><div class='custom-pass2' align='center'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"' href='' class='linkchat'><font color='#fff'>"+ nuovonick +" "+ item.percentuale +"%</font></a></div></td><td align='left' width='40%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></tr><tr><td align='center' colspan='2'><br><font color='#cc33cc' size='4'><b><p>"+localStorage.getItem("sessionAccettazione")+"</p></b></font><br></td></tr><tr><td align='left' colspan='2'><font color='#cc33cc' size='5'><b><div id='timer2'></div></b></font><b>"+ tempistica +"</b><table><tr><td><b><p>"+localStorage.getItem("sessionPrezzo")+":</p> </b></td><td>"+ somma +"</td></tr><tr><td><b><p>"+localStorage.getItem("sessionQuando")+": </p></td><td> </b>"+ item.quando +" </td><td><b><p>"+localStorage.getItem("sessionOra")+": </p></td><td> </b>"+ item.ora +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionPartenza")+": </p></b></td><td> "+ item.partenza +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionArrivo")+": </p> </b></td><td>"+ item.arrivo +"</td></tr></table><table><tr><td><b>"+localStorage.getItem("sessionNote")+": </b></td><td>"+ item.note_autista +"</td></tr></table></td></tr><tr><td align='center' colspan='2'><br><a id='cell"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' ><img src='img/ico_telephone.png' width='50'></a>&nbsp;&nbsp;<a id='chat"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' ><img src='img/chat.png' width='50'></a>&nbsp;&nbsp;<a id='rifiuta2"+ item.id_richiesta +"_"+ item.id_autista +"' href='#'><img src='img/ico_feedback.png' width='50'></a></td></tr><tr><td align='center' colspan='2'><br><table><tr><td><b><p>"+localStorage.getItem("sessionCommento")+"</p></td><td> "+ item.cod_passeggero +"</b></td></tr></table></td></tr><tr><td align='center' colspan='2'>&nbsp;&nbsp;</td></tr><tr><td align='center' colspan='2'></td></tr></table>");
+				    $("#offerte4").append("<br><br><br><br><table width='90%' border='0' valign='center' align='center' class='tabellaB'><tr><td align='center' width='100%' colspan='2'><div align='center' class='custom-pass2'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"'><font color='#fff'><b>"+ item.nick +"</b></font></div></td></tr><tr><td align='center' width='100%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></td></tr><tr><td align='left' colspan='2'><table><tr><td><font size='2' color='#fff'><b><p>"+localStorage.getItem("sessionQuando")+": </p></font></td><td> </b><font color='#fff'>"+ item.quando +" </font></td><td><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionOra")+": </font></p></td><td> </b><font color='#fff' size='2'>"+ item.ora +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionPartenza")+": </font></p></b></td><td> <font color='#fff' size='2'>"+ item.partenza +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionArrivo")+": </font></p> </b></td><td><font color='#fff' size='2'>"+ item.arrivo +"</font></td></tr><tr><td valign='top'><font color='#fff' size='2'><b><p>Grandezza: </p> </b></font></td><td align='left'><font size='2' color='#fff' size='2'>"+ item.grandezza +"</td></tr><tr><td colspan='2'></td></tr><tr><td valign='top' align='center' colspan='2'><font size='3' color='#fff'><b><p>Codice di sicurezza </p> </b></font></td></tr><tr><td align='center' colspan='3'><font color='#fff'>"+ item.cod_sicurezza +"</font></td></tr><tr><td valign='top' colspan='2'><table class='costoservizio' width='100%'><tr><td width='60%' align='center'><font size='3' color='#fff'><b>Costo Servizio</b></font></td><td width='40%' align='center' ><font size='5' color='#fff'><b><div id='costocalcolato'>"+item.costo_servizio+"</div></b></font></td></tr></table></td></tr></table></td></tr><tr><td align='center'></td></tr><tr><td align='center'></td></tr><tr><td align='center' colspan='2'><a id='chat"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' ><img src='img/chat.png' width='50'></a>&nbsp;&nbsp;<a id='cell"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' ><img src='img/call.png' width='50'></a><br><img id='star1"+ item.id_richiesta +"_"+ item.id_autista + "' src='img/starunselected.png' width='45'> <img id='star2"+ item.id_richiesta +"_"+ item.id_autista + "' src='img/starunselected.png' width='45'> <img id='star3"+ item.id_richiesta +"_"+ item.id_autista + "' src='img/starunselected.png' width='45'> <img id='star4"+ item.id_richiesta +"_"+ item.id_autista + "' src='img/starunselected.png' width='45'> <img id='star5"+ item.id_richiesta +"_"+ item.id_autista + "' src='img/starunselected.png' width='45'></td></tr><tr><td align='center'></td></tr></table>");
                    
-                   seleziona();
+						seleziona();
 				    }
 				    else{
-				      $("#offerte4").append("<br><table width='90%' border='0' valign='center' align='center' class='tabella'><tr><td align='right' width='60%'><div class='custom-pass2' align='center'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"' href='' class='linkchat'><font color='#fff'>"+ nuovonick +" "+ item.percentuale +"%</font></a></div></td><td align='left' width='40%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></tr><tr><td align='center' colspan='2'>&nbsp;&nbsp;<font color='#cc33cc' size='4'><b><p>"+localStorage.getItem("sessionAccettazione")+"</p></b></font></td></tr><tr><td align='left' colspan='2'><font color='#cc33cc' size='5'><b><div id='timer2'></div></b></font><br><b>"+ tempistica +"</b><table><tr><td><b><p>"+localStorage.getItem("sessionPrezzo")+":</p> </b></td><td>"+ somma +"</td></tr><tr><td><b><p>"+localStorage.getItem("sessionQuando")+": </p></td><td> </b>"+ item.quando +" </td><td><b><p>"+localStorage.getItem("sessionOra")+": </p></td><td> </b>"+ item.ora +"</td></tr></table><table><tr><td valign='top'><b><p >"+localStorage.getItem("sessionPartenza")+": </p></b></td><td> "+ item.partenza +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionArrivo")+": </p> </b></td><td>"+ item.arrivo +"</td></tr></table><table><tr><td><b>"+localStorage.getItem("sessionNote")+": </b></td><td>"+ item.note_autista +"</td></tr></table></td></tr><tr><td align='center' colspan='2'><br><a id='chat"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' ><img src='img/chat.png' width='50'></a>&nbsp;&nbsp;<a id='rifiuta2"+ item.id_richiesta +"_"+ item.id_autista +"' href='#'><img src='img/ico_feedback.png' width='50'></a></td></tr><tr><td align='center' colspan='2'><table><tr><td><b><p>"+localStorage.getItem("sessionCommento")+"</p></td><td> "+ item.cod_passeggero +"</b></td></tr></table></td></tr><tr><td align='center' colspan='2'>&nbsp;&nbsp;</td></tr><tr><td align='center' colspan='2'></td></tr></table>");
+				      $("#offerte4").append("<br><br><br><br><table width='90%' border='0' valign='center' align='center' class='tabellaB'><tr><td align='center' width='100%' colspan='2'><div align='center' class='custom-pass2'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"'><font color='#fff'><b>"+ item.nick +"</b></font></div></td></tr><tr><td align='center' width='100%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></td></tr><tr><td align='left' colspan='2'><table><tr><td><font size='2' color='#fff'><b><p>"+localStorage.getItem("sessionQuando")+": </p></font></td><td> </b><font color='#fff'>"+ item.quando +" </font></td><td><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionOra")+": </font></p></td><td> </b><font color='#fff' size='2'>"+ item.ora +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionPartenza")+": </font></p></b></td><td> <font color='#fff' size='2'>"+ item.partenza +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionArrivo")+": </font></p> </b></td><td><font color='#fff' size='2'>"+ item.arrivo +"</font></td></tr><tr><td valign='top'><font color='#fff' size='2'><b><p>Grandezza: </p> </b></font></td><td align='left'><font size='2' color='#fff' size='2'>"+ item.grandezza +"</td></tr><tr><td colspan='2'></td></tr><tr><td valign='top' align='center' colspan='2'><font size='3' color='#fff'><b><p>Codice di sicurezza </p> </b></font></td></tr><tr><td align='center' colspan='3'><font color='#fff'>"+ item.cod_sicurezza +"</font></td></tr><tr><td valign='top' colspan='2'><table class='costoservizio' width='100%'><tr><td width='60%' align='center'><font size='3' color='#fff'><b>Costo Servizio</b></font></td><td width='40%' align='center' ><font size='5' color='#fff'><b><div id='costocalcolato'>"+item.costo_servizio+"</div></b></font></td></tr></table></td></tr></table></td></tr><tr><td align='center'></td></tr><tr><td align='center'></td></tr><tr><td align='center' colspan='2'><a id='chat"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' ><img src='img/chat.png' width='50'></a>&nbsp;&nbsp;<a id='rifiuta2"+ item.id_richiesta +"_"+ item.id_autista +"' href='#'><img src='img/ico_feedback.png' width='50'></a></td></tr><tr><td align='center'></td></tr></table>");
                    
-                   seleziona();
+						  seleziona();
 					}
 				  
 				  
@@ -4732,12 +4842,81 @@ function vediofferte(){
 				  else{
                    
                    
-				    $("#offerte4").append("<br><table width='90%' border='0' valign='center' align='center' class='tabella'><tr><td align='right' width='60%'><div class='custom-pass11' align='center'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"' href=''class='linkchat'><font color='#fff'>"+ nuovonick +" "+ item.percentuale +"%</font></a></div></td><td align='left' width='40%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></tr><tr><td align='center' colspan='2'><font color='#cc33cc' size='5'><b><div id='timer2' style='display:none'></div></b></font><br>&nbsp;&nbsp;<font color='#cc33cc' size='3'><b>&nbsp;<div>"+localStorage.getItem("sessionAttendere")+"</div></font><font color='#cc33cc' size='2'><div id='puntini' class='loading'>L'autista sta valutando la richiesta</div></b></font></td></tr><tr><td align='left' colspan='2'>&nbsp;&nbsp;<b>"+ tempistica +"</b><table><tr><td><b><p>"+localStorage.getItem("sessionPrezzo")+":</p> </b></td><td>"+ somma +"</td></tr><tr><td><b><p>"+localStorage.getItem("sessionQuando")+" </p></td><td> </b>"+ item.quando +": </td><td><b><p>"+localStorage.getItem("sessionOra")+": </p></td><td> </b>"+ item.ora +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionPartenza")+": </p></b></td><td> "+ item.partenza +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionArrivo")+": </p> </b></td><td>"+ item.arrivo +"</td></tr></table><table><tr><td><b>"+localStorage.getItem("sessionNote")+": </b></td><td>"+ item.note_autista +"</td></tr></table><br></td></tr><tr><td align='center' colspan='2'><a id='elimina"+ item.id_richiesta +"_"+ item.id_autista +"' href='#'><font color='#fff'><img src='img/ico_trash.png' width='45'></font></a></td></tr><tr><td align='center' colspan='2'></td></tr></table>");
-                   
+				    //$("#offerte4").append("<br><table width='90%' border='0' valign='center' align='center' class='tabella'><tr><td align='right' width='60%'><div class='custom-pass11' align='center'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"' href=''class='linkchat'><font color='#fff'>"+ nuovonick +" "+ item.percentuale +"%</font></a></div></td><td align='left' width='40%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></tr><tr><td align='center' colspan='2'><font color='#cc33cc' size='5'><b><div id='timer2' style='display:none'></div></b></font><br>&nbsp;&nbsp;<font color='#cc33cc' size='3'><b>&nbsp;<div>"+localStorage.getItem("sessionAttendere")+"</div></font><font color='#cc33cc' size='2'><div id='puntini' class='loading'>L'autista sta valutando la richiesta</div></b></font></td></tr><tr><td align='left' colspan='2'>&nbsp;&nbsp;<b>"+ tempistica +"</b><table><tr><td><b><p>"+localStorage.getItem("sessionPrezzo")+":</p> </b></td><td>"+ somma +"</td></tr><tr><td><b><p>"+localStorage.getItem("sessionQuando")+" </p></td><td> </b>"+ item.quando +": </td><td><b><p>"+localStorage.getItem("sessionOra")+": </p></td><td> </b>"+ item.ora +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionPartenza")+": </p></b></td><td> "+ item.partenza +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionArrivo")+": </p> </b></td><td>"+ item.arrivo +"</td></tr></table><table><tr><td><b>"+localStorage.getItem("sessionNote")+": </b></td><td>"+ item.note_autista +"</td></tr></table><br></td></tr><tr><td align='center' colspan='2'><a id='elimina"+ item.id_richiesta +"_"+ item.id_autista +"' href='#'><font color='#fff'><img src='img/ico_trash.png' width='45'></font></a></td></tr><tr><td align='center' colspan='2'></td></tr></table>");
+				   
+				   
+				   $("#offerte4").append("<br><br><br><br><table width='90%' border='0' valign='center' align='center' class='tabellaB'><tr><td align='right' width='60%'><div align='center' class='custom-pass11'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"'><font color='#fff'><b>"+ item.nick +"</b></font></div></td><td align='left' width='40%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></td></tr><tr><td align='left' colspan='2'>&nbsp;&nbsp;<font color='#fff' size='3'><b>&nbsp;<div>"+localStorage.getItem("sessionAttendere")+"</div></font><font color='#fff' size='2'><div id='puntini' class='loading'>L'autista sta valutando la richiesta</div></b></font><br><table><tr><td><font size='2' color='#fff'><b><p>"+localStorage.getItem("sessionQuando")+": </p></font></td><td> </b><font color='#fff'>"+ item.quando +" </font></td><td><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionOra")+": </font></p></td><td> </b><font color='#fff' size='2'>"+ item.ora +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionPartenza")+": </font></p></b></td><td> <font color='#fff' size='2'>"+ item.partenza +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionArrivo")+": </font></p> </b></td><td><font color='#fff' size='2'>"+ item.arrivo +"</font></td></tr><tr><td valign='top'><font color='#fff' size='2'><b><p>Grandezza: </p> </b></font></td><td align='left'><font size='2' color='#fff' size='2'>"+ item.grandezza +"</td></tr><tr><td colspan='2'></td></tr><tr><td valign='top' align='center' colspan='2'><font size='3' color='#fff'><b><p>Codice di sicurezza </p> </b></font></td></tr><tr><td align='center' colspan='3'><font color='#fff'>"+ item.cod_sicurezza +"</font></td></tr><tr><td valign='top' colspan='2'><table class='costoservizio' width='100%'><tr><td width='60%' align='center'><font size='3' color='#fff'><b>Costo Servizio</b></font></td><td width='40%' align='center' ><font size='5' color='#fff'><b><div id='costocalcolato'>"+item.costo_servizio+"</div></b></font></td></tr></table></td></tr></table></td></tr><tr><td align='center'></td></tr><tr><td align='center'></td></tr><tr><td align='center' colspan='2'><a id='elimina"+ item.id_richiesta +"_"+ item.id_autista +"' href='#'><font color='#fff'><img src='img/ico_trash.png' width='45'></font></a></td></tr><tr><td align='center'></td></tr></table>");
+				   
+				   
+				   
                    seleziona();
 					
 					//<a id='accetta"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4'><font color='#fff'>ACCETTA</font></a>&nbsp;&nbsp;    class='loading'
 				  }
+				   
+				   
+				   
+				   $(document).on("touchstart", "#star1"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
+								  scriviRec_passaggio(1,item.id_richiesta,item.id_autista);
+								  
+								  e.stopImmediatePropagation();
+								  
+								  e.preventDefault();
+								  
+								  return false;
+								  
+								  if ($.browser.iphone || $.browser.ipad) $(this).trigger('click');
+								  });
+				   
+				   $(document).on("touchstart", "#star2"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
+								  scriviRec_passaggio(2,item.id_richiesta,item.id_autista);
+								  
+								  e.stopImmediatePropagation();
+								  
+								  e.preventDefault();
+								  
+								  return false;
+								  
+								  if ($.browser.iphone || $.browser.ipad) $(this).trigger('click');
+								  });
+				   
+				   $(document).on("touchstart", "#star3"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
+								  scriviRec_passaggio(3,item.id_richiesta,item.id_autista);
+								  
+								  e.stopImmediatePropagation();
+								  
+								  e.preventDefault();
+								  
+								  return false;
+								  
+								  if ($.browser.iphone || $.browser.ipad) $(this).trigger('click');
+								  });
+				   
+				   $(document).on("touchstart", "#star4"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
+								  scriviRec_passaggio(4,item.id_richiesta,item.id_autista);
+								  
+								  e.stopImmediatePropagation();
+								  
+								  e.preventDefault();
+								  
+								  return false;
+								  
+								  if ($.browser.iphone || $.browser.ipad) $(this).trigger('click');
+								  });
+				   
+				   $(document).on("touchstart", "#star5"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
+								  scriviRec_passaggio(5,item.id_richiesta,item.id_autista);
+								  
+								  e.stopImmediatePropagation();
+								  
+								  e.preventDefault();
+								  
+								  return false;
+								  
+								  if ($.browser.iphone || $.browser.ipad) $(this).trigger('click');
+								  });
+				   
+				   
 				  
 				    $(document).on("touchstart", "#accetta"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
 					  accettaofferta(2,item.id_richiesta,item.id_autista)
@@ -4806,39 +4985,13 @@ function vediofferte(){
 				  
 				  
 				  $(document).on("touchstart", "#cell"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
+					    //alert("tel:+39"+item.cell+"")
 						window.location.href = "tel:+39"+item.cell+"";
 						if ($.browser.iphone || $.browser.ipad) $(this).trigger('click');
 					});
 				  
 				  
-				  
-				  $(document).on("tap", "#linkpass"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
-								 
-								 
-					var ref = window.open('http://www.purplemiles.com/www/profilo_autista.php?lang='+ localStorage.getItem("lingua") +'&idp='+localStorage.getItem("id_utente")+'&ida='+item.id_utente_autista+'&pm='+localStorage.getItem("md5")+'', '_blank', 'location=no');
-								 
-					e.stopImmediatePropagation();
-								 
-					e.preventDefault();
-								 
-					return false;
-								 
-					});
-				  
-				  $(document).on("tap", "#stelleautista"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
-								 
-								 
-						var ref = window.open('http://www.purplemiles.com/www/feedback_autista.php?lang='+ localStorage.getItem("lingua") +'&idp='+localStorage.getItem("id_utente")+'&ida='+item.id_utente_autista+'&pm='+localStorage.getItem("md5")+'', '_blank', 'location=no');
-								 
-								 
-						e.stopImmediatePropagation();
-								 
-						e.preventDefault();
-								 
-						return false;
-								 
-					});
-				  
+
 				  
 				  if(parseFloat(item.rating)==0){
 				  $("#stelleautista"+ item.id_richiesta +"_"+ item.id_autista + "").html("<img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'>")
@@ -4922,7 +5075,7 @@ function vediofferte(){
 				     window.clearInterval(i);
 				    }
 					 localStorage.setItem("tempor","0")
-				     scadutaofferta(0,item.id_richiesta,item.id_autista)
+				     //scadutaofferta(0,item.id_richiesta,item.id_autista)
 					 return false;
 
 					 // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
@@ -5089,19 +5242,21 @@ function vediofferte(){
 				   if(item.confermata==1){
                    
 
-					 $("#offerte4").append("<br><table width='90%' border='0' valign='center' align='center' class='tabella'><tr><td align='right' width='60%'><div class='custom-pass11' align='center'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"' href='' class='linkchat'><font color='#fff'>"+ nuovonick +" "+ item.percentuale +"%</font></a></div></td><td align='left' width='40%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></tr><tr><td align='center' colspan='2'>&nbsp;&nbsp;<font color='#cc33cc' size='3'><b><p>"+localStorage.getItem("sessionReinoltra")+"</p></b></font></td></tr><tr><td align='left' colspan='2'>&nbsp;&nbsp;<b>"+ tempistica +"</b><table><tr><td><b><p>"+localStorage.getItem("sessionPrezzo")+":</p> </b></td><td>"+ somma +"</td></tr></table><table><tr><td><b><p>"+localStorage.getItem("sessionQuando")+": </p></td><td> </b>"+ item.quando +" </td><td><b><p>"+localStorage.getItem("sessionOra")+": </p></td><td> </b>"+ item.ora +"</td></tr></table><table><tr><td valign='top'><b><p >"+localStorage.getItem("sessionPartenza")+": </p></b></td><td> "+ item.partenza +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionArrivo")+": </p> </b></td><td>"+ item.arrivo +"</td></tr></table><table><tr><td><b>"+localStorage.getItem("sessionNote")+": </b></td><td>"+ item.note_autista +"</td></tr></table></td></tr><tr><td align='center' colspan='2'><a id='accetta"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4accetta'><font color='#fff'>"+ accetta +"</font></a>&nbsp;&nbsp;<a id='elimina"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4rifiuta'><font color='#fff'>"+ cancella +"</font></a></td></tr><tr><td align='center' colspan='2'></td></tr></table>");
+					 $("#offerte4").append("<br><table width='90%' border='0' valign='center' align='center' class='tabella'><tr><td align='center' width='100%' colspan='2'><div align='center' class='custom-pass11'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"'><font color='#fff'><b>"+ item.nick +"</b></font></div></td></tr><tr><td align='center' width='100%' colspan='2'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></td></tr><tr><td align='center' colspan='2'>&nbsp;&nbsp;<font color='#cc33cc' size='3'><b><p>"+localStorage.getItem("sessionReinoltra")+"</p></b></font></td></tr><tr><td align='left' colspan='2'>&nbsp;&nbsp;<b>"+ tempistica +"</b><table><tr><td><b><p>"+localStorage.getItem("sessionPrezzo")+":</p> </b></td><td>"+ somma +"</td></tr></table><table><tr><td><b><p>"+localStorage.getItem("sessionQuando")+": </p></td><td> </b>"+ item.quando +" </td><td><b><p>"+localStorage.getItem("sessionOra")+": </p></td><td> </b>"+ item.ora +"</td></tr></table><table><tr><td valign='top'><b><p >"+localStorage.getItem("sessionPartenza")+": </p></b></td><td> "+ item.partenza +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionArrivo")+": </p> </b></td><td>"+ item.arrivo +"</td></tr></table><table><tr><td><b>"+localStorage.getItem("sessionNote")+": </b></td><td>"+ item.note_autista +"</td></tr></table></td></tr><tr><td align='center' colspan='2'><a id='accetta"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4accetta'><font color='#fff'>"+ accetta +"</font></a>&nbsp;&nbsp;<a id='elimina"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4rifiuta'><font color='#fff'>"+ cancella +"</font></a></td></tr><tr><td align='center' colspan='2'></td></tr></table>");
                    
-                     seleziona();
+					     seleziona();
 				   }
 				   else{
                    
 
-					 $("#offerte4").append("<br><table width='90%' border='0' valign='center' align='center' class='tabella'><tr><td align='right' width='60%'><div class='custom-pass11' align='center'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"' href='' class='linkchat'><font color='#fff'>"+ nuovonick +" "+ item.percentuale +"%</font></a></div></td><td align='left' width='40%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></tr><tr><td align='left' colspan='2'>&nbsp;&nbsp;<b>"+ tempistica +"</b><table><tr><td><b><p>"+localStorage.getItem("sessionPrezzo")+":</p> </b></td><td>"+ somma +"</td></tr></table><table><tr><td><b><p>"+localStorage.getItem("sessionQuando")+": </p></td><td> </b>"+ item.quando +" </td><td><b><p>"+localStorage.getItem("sessionOra")+": </p></td><td> </b>"+ item.ora +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionPartenza")+": </p></b></td><td> "+ item.partenza +"</td></tr></table><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionArrivo")+": </p> </b></td><td>"+ item.arrivo +"</td></tr></table><table><tr><td><b>"+localStorage.getItem("sessionNote")+": </b></td><td>"+ item.note_autista +"</td></tr></table><br></td></tr><tr><td align='center' colspan='2'><a id='accetta"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4accetta'><font color='#fff'>"+ accetta +"</font></a>&nbsp;&nbsp;<a id='elimina"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4rifiuta'><font color='#fff'>"+ cancella +"</font></a></td></tr><tr><td align='center' colspan='2'></td></tr></table>");
+					 $("#offerte4").append("<br><br><br><br><table width='90%' border='0' valign='center' align='center' class='tabellaB'><tr><td align='center' width='100%' colspan='2'><div align='center' class='custom-pass11'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"'><font color='#fff'><b>"+ item.nick +"</b></font></div></td></tr><tr><td align='center' width='100%' colspan='2'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></td></tr><tr><td align='left' colspan='2'><br><table><tr><td><font size='2' color='#fff'><b><p>"+localStorage.getItem("sessionQuando")+": </p></font></td><td> </b><font color='#fff'>"+ item.quando +" </font></td><td><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionOra")+": </font></p></td><td> </b><font color='#fff' size='2'>"+ item.ora +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionPartenza")+": </font></p></b></td><td> <font color='#fff' size='2'>"+ item.partenza +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionArrivo")+": </font></p> </b></td><td><font color='#fff' size='2'>"+ item.arrivo +"</font></td></tr><tr><td valign='top'><font color='#fff' size='2'><b><p>Grandezza: </p> </b></font></td><td align='left'><font size='2' color='#fff' size='2'>"+ item.grandezza +"</td></tr><tr><td colspan='2'></td></tr><tr><td valign='top' align='center' colspan='2'><font size='3' color='#fff'><b><p>Codice di sicurezza </p> </b></font></td></tr><tr><td align='center' colspan='3'><font color='#fff'>"+ item.cod_sicurezza +"</font></td></tr><tr><td valign='top' colspan='2'><table class='costoservizio' width='100%'><tr><td width='60%' align='center'><font size='3' color='#fff'><b>Costo Servizio</b></font></td><td width='40%' align='center' ><font size='5' color='#fff'><b><div id='costocalcolato'>"+item.costo_servizio+"</div></b></font></td></tr></table></td></tr></table></td></tr><tr><td align='center'></td></tr><tr><td align='center'></td></tr><tr><td align='center' colspan='2'><a id='accetta"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4accetta'><font color='#fff'>"+ accetta +"</font></a>&nbsp;&nbsp;<a id='elimina"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4rifiuta'><font color='#fff'>"+ cancella +"</font></a></td></tr><tr><td align='center'></td></tr></table>");
                    
                       seleziona();
 				   
 				    }
 				   
+				   
+				   //$("#offerte4").append("<br><br><br><br><table width='90%' border='0' valign='center' align='center' class='tabellaB'><tr><td align='right' width='60%'><div align='center'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"'><font color='#fff'><b>"+ item.nick +"</b></font></div></td><td align='left' width='40%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></td></tr><tr><td align='left' colspan='2'><br><table><tr><td><font size='2' color='#fff'><b><p>"+localStorage.getItem("sessionQuando")+": </p></font></td><td> </b><font color='#fff'>"+ item.quando +" </font></td><td><b><p><font color='#fff'>"+localStorage.getItem("sessionOra")+": </font></p></td><td> </b><font color='#fff' size='2'>"+ item.ora +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionPartenza")+": </font></p></b></td><td> <font color='#fff' size='2'>"+ item.partenza +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionArrivo")+": </font></p> </b></td><td><font color='#fff' size='2'>"+ item.arrivo +"</font></td></tr><tr><td valign='top'><font color='#fff' size='2'><b><p>Grandezza: </p> </b></font></td><td align='left'><font size='2' color='#fff' size='2'>"+ item.grandezza +"</td></tr><tr><td colspan='2'></td></tr><tr><td valign='top' align='center' colspan='2'><font size='3' color='#fff'><b><p>Codice di sicurezza </p> </b></font></td></tr><tr><td align='center' colspan='3'><font color='#fff'>"+ item.cod_sicurezza +"</font></td></tr><tr><td valign='top' colspan='2'><table class='costoservizio' width='100%'><tr><td width='60%' align='center'><font size='3' color='#fff'><b>Costo Servizio</b></font></td><td width='40%' align='center' ><font size='5' color='#fff'><b><div id='costocalcolato'>"+item.costo_servizio+"</div></b></font></td></tr></table></td></tr></table></td></tr><tr><td align='center'></td></tr><tr><td align='center'></td></tr><tr><td align='center' colspan='2'><a id='accetta"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4accetta'><font color='#fff'>"+ accetta +"</font></a>&nbsp;&nbsp;<a id='elimina"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' data-role='button' data-theme='b' class='custom-btn4rifiuta'><font color='#fff'>"+ cancella +"</font></a></td></tr><tr><td align='center'></td></tr></table>");
 
 				  
 				    $(document).on("touchstart", "#accetta"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
@@ -5124,36 +5279,7 @@ function vediofferte(){
 								  
 					});
 				   
-				  
-				  $(document).on("tap", "#linkpass"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
-								 
-								 
-						var ref = window.open('http://www.purplemiles.com/www/profilo_autista.php?lang='+ localStorage.getItem("lingua") +'&idp='+localStorage.getItem("id_utente")+'&ida='+item.id_utente_autista+'&pm='+localStorage.getItem("md5")+'', '_blank', 'location=no');
-								 
-						e.stopImmediatePropagation();
-								 
-						e.preventDefault();
-								 
-						return false;
-								 
-					});
-				  
-				  $(document).on("tap", "#stelleautista"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
-								 
-								 //http://www.purplemiles.com/www/profilo_passeggero.php?idp=19&ida="+localStorage.getItem("id_autista")+"&pm="+localStorage.getItem("md5")+"
-								 
-						var ref = window.open('http://www.purplemiles.com/www/feedback_autista.php?lang='+ localStorage.getItem("lingua") +'&idp='+localStorage.getItem("id_utente")+'&ida='+item.id_utente_autista+'&pm='+localStorage.getItem("md5")+'', '_blank', 'location=no');
-								 
-								 
-						e.stopImmediatePropagation();
-								 
-						e.preventDefault();
-								 
-						return false;
-								 
-					});
-				  
-					
+
 								  if(parseFloat(item.rating)==0){
 								  $("#stelleautista"+ item.id_richiesta +"_"+ item.id_autista + "").html("<img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'><img src='img/starunselected.png' width='18'>")
 								  }
@@ -5205,7 +5331,7 @@ function vediofferte(){
 				   
 					   item.stato==2
 				   
-					   $("#offerte4").append("<br><table width='90%' border='0' valign='center' align='center' class='tabella'><tr><td align='center'><b><p id='h4richiesta'>RICHIESTA</p></b></td></tr><tr><td align='left'><br><table><tr><td><b><p>"+localStorage.getItem("sessionQuando")+": </p></td><td> </b>"+ item.quando +" </td><td><b><p>"+localStorage.getItem("sessionOra")+": </p></td><td> </b>"+ item.ora +"</td></tr></table><br><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionPartenza")+": </p></b></td><td> "+ item.partenza +"</td></tr></table><br><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionArrivo")+": </p> </b></td><td>"+ item.arrivo +"</td></tr></table></td></tr><tr><td align='center'></td></tr><tr><td align='center'><br></td></tr><tr><td align='center'><a id='elimina"+ item.id_richiesta +"' href='#' ><img src='img/ico_trash.png' width='45'></a></td></tr><tr><td align='center'></td></tr></table>");
+				   $("#offerte4").append("<font color='#fff'><br><br><br><br><table width='90%' border='0' valign='center' align='center' class='tabellaB'><tr><td align='center'><b><p>Richiesta in attesa</p></b></td></tr><tr><td align='left'><br><table><tr><td><font size='2' color='#fff'><b><p>"+localStorage.getItem("sessionQuando")+": </p></font></td><td> </b><font color='#fff'>"+ item.quando +" </font></td><td><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionOra")+": </font></p></td><td> </b><font color='#fff' size='2'>"+ item.ora +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionPartenza")+": </font></p></b></td><td> <font color='#fff' size='2'>"+ item.partenza +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionArrivo")+": </font></p> </b></td><td><font color='#fff' size='2'>"+ item.arrivo +"</font></td></tr><tr><td valign='top'><font color='#fff' size='2'><b><p>Grandezza: </p> </b></font></td><td align='left'><font size='2' color='#fff' size='2'>"+ item.grandezza +"</td></tr><tr><td colspan='2'></td></tr><tr><td valign='top' align='center' colspan='2'><font size='3' color='#fff'><b><p>Codice di sicurezza </p> </b></font></td></tr><tr><td align='center' colspan='3'><font color='#fff'>"+ item.cod_sicurezza +"</font></td></tr><tr><td valign='top' colspan='2'><table class='costoservizio' width='100%'><tr><td width='60%' align='center'><font size='3' color='#fff'><b>Costo Servizio</b></font></td><td width='40%' align='center' ><font size='5' color='#fff'><b><div id='costocalcolato'>"+item.costo_servizio+"</div></b></font></td></tr></table></td></tr></table></td></tr><tr><td align='center'></td></tr><tr><td align='center'></td></tr><tr><td align='center'><a id='elimina"+ item.id_richiesta +"' href='#' ><img src='img/ico_trash.png' width='40'></a></td></tr><tr><td align='center'></td></tr></table></font>");
 				  
 				           $(document).on("touchstart", "#elimina"+ item.id_richiesta +"", function(e){
 							 elimina(item.id_richiesta)
@@ -5213,18 +5339,19 @@ function vediofferte(){
 						   });
 				   
 				   
+				   
                       seleziona();
 				  
 					 }
 					 else{
 				   
-				       $("#offerte4").append("<br><table width='90%' border='0' valign='center' align='center' class='tabella'><tr><td align='right' width='60%'><div class='custom-pass00' align='center'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"'><font color='#fff'><b>"+ nuovonick +" "+ item.percentuale +"%</b></font></div></td><td align='left' width='40%'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></td></tr><tr><td align='left' colspan='2'><br><table><tr><td align='center' colspan='2'><font color='#cc33cc' size='3'><b>&nbsp;<div>"+localStorage.getItem("sessionValutazione")+"</div></font></td></tr><tr><td><b><p>"+localStorage.getItem("sessionQuando")+": </p></td><td> </b>"+ item.quando +" </td><td><b><p>"+localStorage.getItem("sessionOra")+": </p></td><td> </b>"+ item.ora +"</td></tr></table><br><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionPartenza")+": </p></b></td><td> "+ item.partenza +"</td></tr></table><br><table><tr><td valign='top'><b><p>"+localStorage.getItem("sessionArrivo")+": </p> </b></td><td>"+ item.arrivo +"</td></tr></table></td></tr><tr><td align='center' colspan='2'><a id='elimina"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' ><img src='img/ico_trash.png' width='45'></a></td></tr><tr><td align='center' colspan='2'></td></tr></table>");
+				       $("#offerte4").append("<br><br><br><br><table width='90%' border='0' valign='center' align='center' class='tabellaB'><tr><td align='center' width='100%' colspan='2'><div align='center'><a id='linkpass"+ item.id_richiesta +"_"+ item.id_autista +"'><font color='#fff'><b>"+ item.nick +"</b></font></div></td></tr><tr><td align='center' width='100%' colspan='2'><div id='stelleautista"+ item.id_richiesta +"_"+ item.id_autista +"'></div></td></tr><tr><td align='left' colspan='2'><br><table><tr><td><font size='2' color='#fff'><b><p>"+localStorage.getItem("sessionQuando")+": </p></font></td><td> </b><font color='#fff'>"+ item.quando +" </font></td><td><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionOra")+": </font></p></td><td> </b><font color='#fff' size='2'>"+ item.ora +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionPartenza")+": </font></p></b></td><td> <font color='#fff' size='2'>"+ item.partenza +"</font></td></tr></table><table><tr><td valign='top'><b><p><font color='#fff' size='2'>"+localStorage.getItem("sessionArrivo")+": </font></p> </b></td><td><font color='#fff' size='2'>"+ item.arrivo +"</font></td></tr><tr><td valign='top'><font color='#fff' size='2'><b><p>Grandezza: </p> </b></font></td><td align='left'><font size='2' color='#fff' size='2'>"+ item.grandezza +"</td></tr><tr><td colspan='2'></td></tr><tr><td valign='top' align='center' colspan='2'><font size='3' color='#fff'><b><p>Codice di sicurezza </p> </b></font></td></tr><tr><td align='center' colspan='3'><font color='#fff'>"+ item.cod_sicurezza +"</font></td></tr><tr><td valign='top' colspan='2'><table class='costoservizio' width='100%'><tr><td width='60%' align='center'><font size='3' color='#fff'><b>Costo Servizio</b></font></td><td width='40%' align='center' ><font size='5' color='#fff'><b><div id='costocalcolato'>"+item.costo_servizio+"</div></b></font></td></tr></table></td></tr></table></td></tr><tr><td align='center'></td></tr><tr><td align='center'></td></tr><tr><td align='center' colspan='2'><a id='elimina"+ item.id_richiesta +"_"+ item.id_autista +"' href='#' ><img src='img/ico_trash.png' width='40'></a></td></tr><tr><td align='center'></td></tr></table>");
 				  
                    
                      seleziona();
 				  
 				       $(document).on("touchstart", "#elimina"+ item.id_richiesta +"_"+ item.id_autista +"", function(e){
-						  elimina3(item.id_richiesta,item.id_autista)
+						  elimina3(item.id_richiesta,item.id_autista) //sono arrivato qui
 						  if ($.browser.iphone || $.browser.ipad) $(this).trigger('click');
 					   });
 				  
@@ -5267,7 +5394,7 @@ function vediofferte(){
 																  }
 				  
 				  
-				  $(document).on("tap", "#linkpass"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
+				 /* $(document).on("tap", "#linkpass"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
 								 
 								 
 						var ref = window.open('http://www.purplemiles.com/www/profilo_autista.php?lang='+ localStorage.getItem("lingua") +'&idp='+localStorage.getItem("id_utente")+'&ida='+item.id_utente_autista+'&pm='+localStorage.getItem("md5")+'', '_blank', 'location=no');
@@ -5278,11 +5405,11 @@ function vediofferte(){
 								 
 						return false;
 								 
-					});
+					});*/
 
 				  
 				  
-				  $(document).on("tap", "#stelleautista"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
+				 /* $(document).on("tap", "#stelleautista"+ item.id_richiesta +"_"+ item.id_autista + "", function(e){
 								 
 						//http://www.purplemiles.com/www/profilo_passeggero.php?idp=19&ida="+localStorage.getItem("id_autista")+"&pm="+localStorage.getItem("md5")+"
 								 
@@ -5295,7 +5422,7 @@ function vediofferte(){
 								 
 						return false;
 								 
-					});
+					});*/
 				  
 				  
 				     }
@@ -5306,9 +5433,11 @@ function vediofferte(){
 				  else{
 				  
 				   
-				  $("#offerte4").html("<br><br><table width='90%' border='0' valign='center' align='center' class='tabella'><tr> <td align='center'><br></td></tr><tr><td align='center'><div id='h4nessuna'>"+localStorage.getItem("sessionNessuna")+"</div><br><br></td></tr></table>");
+				  $("#offerte4").html("<br><br><br><br><table width='90%' border='0' valign='center' align='center' class='tabellaB'><tr> <td align='center'><br></td></tr><tr><td align='center'><font color='#fff'><div id='h4nessuna'>"+localStorage.getItem("sessionNessuna")+"</div></font><br><br></td></tr></table> ");
                    
                    seleziona();
+				   
+				   $("#spinner4").hide();
 				
 				   }
 				   
@@ -5322,6 +5451,7 @@ function vediofferte(){
 		   if(conta>1){
 
 		   if(localStorage.getItem("scroller")=="0"){
+		   
 		   /////////SCROLLER///////////////
 		   
 		   setTimeout(function() {
@@ -5357,6 +5487,9 @@ function vediofferte(){
 		   }
 		   //fine conta
 		   
+		   //alert(conta)
+		   
+		   $("#spinner4").hide();
 		   
 		   }
 		   
@@ -5370,10 +5503,15 @@ function vediofferte(){
 		   $("#led2").html("<img src='img/ledrosso.png' width='25px'>");
 		   $("#led4").html("<img src='img/ledrosso.png' width='25px'>");
 		   
+		   for(i=0; i<10000; i++)
+		   {
+		   window.clearInterval(i);
+		   }
+		   
 		   setTimeout (function(){
 			vediofferte();
 					   
-		    }, 2000);
+		    }, 7000);
 	
 		   
 		   },
@@ -5433,6 +5571,61 @@ function vediofferte(){
 	}, 10000);
 	
 	
+	$("#spinner4").hide();
+	
+}
+
+
+
+
+function scriviRec_passaggio(score,id_richiesta,id_autista){
+	
+	$("#spinner22").show();
+	$.ajax({
+		   type:"GET",
+		   url:"http://msop.it/aermes/check_ratingV2_pass.asp",
+		   contentType: "application/json",
+		   data: {id_autista:id_autista,stelle:score},
+		   timeout: 7000,
+		   jsonp: 'callback',
+		   crossDomain: true,
+		   success:function(result){
+		   
+		   $.each(result, function(i,item){
+				  elimina(id_richiesta,id_autista)
+				  
+				  
+				  navigator.notification.alert(
+											   'Grazie,recensione effettuata e richiesta cancellata',  // message
+											   alertDismissed,         // callback
+											   'Attenzione',            // title
+											   'Ok'                  // buttonName
+											   );
+				  
+				  
+				$("#spinner22").hide();
+				  
+				// accettaofferta_offerte_recensione(0,id_richiesta,id_autista)
+				
+				  
+				  
+			});
+		   
+		   
+		   },error: function(){
+		   
+		   $("#spinner44").hide();
+		   
+		   navigator.notification.alert(
+										'Possibile errore di rete, riprova tra qualche minuto1',  // message
+										alertDismissed,         // callback
+										'Attenzione',            // title
+										'Done'                  // buttonName
+										);
+		   
+		   },
+		   dataType:"jsonp"});
+	
 }
 
 
@@ -5469,7 +5662,7 @@ function chatting(id) {
 	
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/leggi_chat.php?id_richiesta="+ id +"&last_id=0",
+		   url:"http://msop.it/aermes/leggi_chat.php?id_richiesta="+ id +"&last_id=0",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -5750,7 +5943,7 @@ function inviachat() {
 	
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/pubblica_chat.php?id_messaggio="+ localStorage.getItem("id_richiesta") +"&nick="+ localStorage.getItem("nickpass") +"&messaggio="+ indirizzo +"",
+		   url:"http://msop.it/aermes/pubblica_chat.php?id_messaggio="+ localStorage.getItem("id_richiesta") +"&nick="+ localStorage.getItem("nickpass") +"&messaggio="+ indirizzo +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -5814,7 +6007,7 @@ function controllachat(uman) {
 
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/controlla_chat.php?nick="+ localStorage.getItem("nickpass") +"",
+		   url:"http://msop.it/aermes/controlla_chat.php?nick="+ localStorage.getItem("nickpass") +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -5900,7 +6093,7 @@ function controllachat2() {
 	
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/controlla_chat.php?nick="+ localStorage.getItem("nickpass") +"",
+		   url:"http://msop.it/aermes/controlla_chat.php?nick="+ localStorage.getItem("nickpass") +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -5940,7 +6133,7 @@ function controllaseautistaaccetta(id_richiesta,id_autista){
 	
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_controllaseaccettata.php?id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
+		   url:"http://msop.it/aermes/check_controllaseaccettata.php?id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -5996,7 +6189,7 @@ function elimina(id_richiesta){
     $("#spinner4").show();
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_elimina.php?id_richiesta="+ id_richiesta +"",
+		   url:"http://msop.it/aermes/check_elimina.php?id_richiesta="+ id_richiesta +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -6071,7 +6264,7 @@ function elimina2(id_richiesta,id_autista){
     $("#spinner4").show();
     $.ajax({
            type:"GET",
-           url:"http://purplemiles.com/www2/check_elimina2.php?id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
+           url:"http://msop.it/aermes/check_elimina2.php?id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
            contentType: "application/json",
            //data: {ID: "Lazio"}, LIMIT 10
            timeout: 7000,
@@ -6148,7 +6341,7 @@ function elimina2(id_richiesta,id_autista){
 			$("#spinner4").show();
 			$.ajax({
 					type:"GET",
-										   url:"http://purplemiles.com/www2/check_elimina3.php?id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
+										   url:"http://msop.it/aermes/check_elimina3.php?id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
 										   contentType: "application/json",
 										   //data: {ID: "Lazio"}, LIMIT 10
 										   timeout: 7000,
@@ -6228,7 +6421,7 @@ function feedofferta(id_richiesta,id_autista){
 	
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_cancella2.php?id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
+		   url:"http://msop.it/aermes/check_cancella2.php?id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -6343,7 +6536,7 @@ function accettaofferta(id,id_richiesta,id_autista){
 	
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_confermapasseggero.php?conferma="+ id +"&id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
+		   url:"http://msop.it/aermes/check_confermapasseggero.php?conferma="+ id +"&id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -6430,7 +6623,7 @@ function scadutaofferta(id,id_richiesta,id_autista){
 	
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_confermapasseggeroS1A.php?conferma="+ id +"&id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
+		   url:"http://msop.it/aermes/check_confermapasseggeroS1A.php?conferma="+ id +"&id_richiesta="+ id_richiesta +"&id_autista="+ id_autista +"",
 		   contentType: "application/json",
 		   //data: {ID: "Lazio"}, LIMIT 10
 		   timeout: 7000,
@@ -6551,7 +6744,7 @@ function prendinazione(){
     $(".spinner").show();
     $.ajax({
            type:"GET",
-           url:"http://purplemiles.com/www2/check_prendinazione.php",
+           url:"http://msop.it/aermes/check_prendinazione.php",
            contentType: "application/json",
            timeout: 7000,
            jsonp: 'callback',
@@ -6663,7 +6856,7 @@ function prendicitta(id){
     $(".spinner").show();
     $.ajax({
            type:"GET",
-           url:"http://purplemiles.com/www2/check_prendicitta.php?nazione=Italy",
+           url:"http://msop.it/aermes/check_prendicitta.php?nazione=Italy",
            contentType: "application/json",
            timeout: 7000,
            jsonp: 'callback',
@@ -6715,7 +6908,7 @@ function prendicittaid(id){
 	//$(".spinner").show();
 	$.ajax({
 		   type:"GET",
-		   url:"http://purplemiles.com/www2/check_prendicittaid.php?id="+ id +"",
+		   url:"http://msop.it/aermes/check_prendicittaid.php?id="+ id +"",
 		   contentType: "application/json",
 		   timeout: 7000,
 		   jsonp: 'callback',
@@ -6824,7 +7017,7 @@ function prendicittaid(id){
 									$(".spinner").show();
 									$.ajax({
 										   type:"GET",
-										   url:"http://purplemiles.com/www2/check_prendimezzo.php",
+										   url:"http://msop.it/aermes/check_prendimezzo.php",
 										   contentType: "application/json",
 										   //data: {email:email,pin:pin},
 										   timeout: 7000,

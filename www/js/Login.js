@@ -1146,7 +1146,7 @@ function onDeviceReady() {
                    
                    //// ANDROID ////
 				   
-				   /*$('#nome').focus(function(){
+				   $('#nome').focus(function(){
 									//window.scrollTo(0, 100);
 									//document.body.scrollTop = $(this).offset().top;
 						myScroll3.scrollToElement("#emailreg", "1s");
@@ -1162,7 +1162,7 @@ function onDeviceReady() {
 						$('#pinreg').blur();
 								  
 						cordova.plugins.Keyboard.close();
-					});*/
+					});
 				   
 				   
 		//var ref = window.open('http://www.purplemiles.com/www/enter.php?lang='+ localStorage.getItem("lingua") +'', '_system', 'location=no');
@@ -3224,12 +3224,19 @@ function LoginVera(email,pin){
 				  localStorage.setItem("perc_autista", item.perc_aut);
 				  localStorage.setItem("perc_pass", item.perc_pass);
 				  localStorage.setItem("id_utente", item.id_utente);
-				  localStorage.setItem("fotoprof", item.foto.replace(".jpg","").replace(".png",""));
+				  
+				  localStorage.setItem("fotoprof", item.foto);
+				  //.replace(".jpg","").replace(".png","")
 				  
 				  localStorage.setItem("patente", item.patente)
 				  localStorage.setItem("RegToken", "");
 				  
-				  localStorage.setItem("nomefoto", "ae_"+email.replace("@","").replace(".","").replace(".",""))
+				  if(localStorage.getItem("fotoprof")=="default"){
+				    localStorage.setItem("nomefoto", "default")
+				  }
+				  else{
+				    localStorage.setItem("nomefoto", "ae_"+email.replace("@","").replace(".","").replace(".",""))
+				  }
 
 				  var contanick = item.nick.length;
 				  var nuovonick;
@@ -3245,6 +3252,12 @@ function LoginVera(email,pin){
 				    localStorage.setItem("nick", nuovonick);
 				  }
 				  
+				  if(item.nome!=""){
+				   localStorage.setItem("nomecognome", item.nome + " " + item.cognome);
+				  }
+				  else{
+				   localStorage.setItem("nomecognome",email);
+				  }
 				  
 				  
 				  if(localStorage.getItem("caricatodb")!="1"){
@@ -3324,15 +3337,25 @@ function LoginFacebookVera(email,nome){
 				  localStorage.setItem("perc_autista", item.perc_aut);
 				  localStorage.setItem("perc_pass", item.perc_pass);
 				  localStorage.setItem("id_utente", item.id_utente);
-				  localStorage.setItem("fotoprof", item.foto);
+				  localStorage.setItem("fotoprof", item.foto.replace(".jpg","").replace(".png",""));
 				  
 				  localStorage.setItem("patente", item.patente)
 				  localStorage.setItem("RegToken", "");
 				  
-				  localStorage.setItem("nomefoto", "ae_"+email.replace("@","").replace(".","").replace(".",""))
+				  if(localStorage.getItem("fotoprof")=="default"){
+				    localStorage.setItem("nomefoto", "default")
+				  }
+				  else{
+				    localStorage.setItem("nomefoto", "ae_"+email.replace("@","").replace(".","").replace(".",""))
+				  }
 				  
 				  
-				  //alert(localStorage.getItem("nomefoto"))
+				  if(item.nome!=""){
+				   localStorage.setItem("nomecognome", item.nome + " " + item.cognome);
+				  }
+				  else{
+				   localStorage.setItem("nomecognome",email);
+				  }
 				  
 				  
 				  window.location.href = "index.html";

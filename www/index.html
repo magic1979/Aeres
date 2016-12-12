@@ -1247,6 +1247,20 @@
 							
 						}
 					  
+					  .tabellaB {
+						  /*background-color: #eceae4;*/
+						  
+						  color:#FFF;
+						  
+						  border: 0px solid #00b28c;
+						  border-color: #00b28c;
+						  
+						  border-radius: 10px;
+						  -moz-border-radius: 10px; /* firefox */
+						  -webkit-border-radius: 10px; /* safari, chrome */
+						  
+					  }
+					  
 					  .tabellaA {
 						  background: transparent !important;
 						  
@@ -1339,7 +1353,7 @@
 					  }
 					  
 					  .div59 {
-						  background-color: #fff;
+						  background-color: #00b28c;
 						  position: fixed;
 						  z-index: 19;
 						  bottom: 0;
@@ -1359,7 +1373,7 @@
 					  
 					  .div599 {
 						  /*background-image: url("img/sfondo.png");*/
-						  background-color: #781978;
+						  background-color: #00b28c;
 						  
 						  position: fixed;
 						  z-index: 20;
@@ -1619,8 +1633,49 @@
 					  input::-webkit-input-placeholder {
 						  color: #fff;
 					  }
-
-                     </style>
+					  
+					  .costoservizio{
+						  border: 1px solid #fff;
+						  border-color: #FFF;
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+					  }
+					  
+					  
+					  .div566 {
+						  background-color: #fff;
+						  position: absolute;
+						  bottom: 60px;
+						  
+						  width: 300px;
+						  height: 380px;
+						  color: #000;
+						  
+						  text-align: center;
+						  font-weight: bold;
+						  
+						  font-size: 22px;
+						  
+						  top:230px;
+						  left:50%;
+						  padding:15px;
+						  -ms-transform: translateX(-50%) translateY(-50%);
+						  -webkit-transform: translate(-50%,-50%);
+						  transform: translate(-50%,-50%);
+						  
+						  border-radius: 5px;
+						  -moz-border-radius: 5px; /* firefox */
+						  -webkit-border-radius: 5px; /* safari, chrome */
+						  
+						  z-index: -1;
+						  
+						  opacity: 0.3;
+						  filter: alpha(opacity=30);
+					  }
+					  
+						  </style>
                       
                       <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.6exp&sensor=true"></script>-->
 					  
@@ -1648,7 +1703,7 @@
 							<!--&nbsp;&nbsp;<a id="#" href"#" rel="external"><img id="#" src="img/logo_bianco.png" height="38px" valign="center"></a>-->
 						</td>
 						<td align="center" width="40%" valign="center">
-							<table align="center" valign="center"><tr><td align="center" valign="center"><img id="stampa" src="img/bianco.png" height="30px"></td></tr></table>
+							<table align="center" valign="center"><tr><td align="center" valign="center"><img id="#" src="img/bianco.png" height="30px"></td></tr></table>
 						</td>
 						<td align="right" width="30%" valign="center">
 							<a id="ChiudiXX" rel="external"><img src="img/Altro.png" width="30px"></a>&nbsp;&nbsp;
@@ -1682,7 +1737,7 @@
 					<td width="100%" align="center" colspan="2">&nbsp;</td>
 				</tr>
 				<tr>
-					<td width="100%" align="center" colspan="2"><table width="80%" align="center"><tr><td align="center"><a id="#" href="#" data-role="button" data-theme="b"><font size="4">SPEDISCI PACCO</font></a></td></tr></table></td>
+					<td width="100%" align="center" colspan="2"><table width="80%" align="center"><tr><td align="center"><a id="mappa7" href="#" data-role="button" data-theme="b"><font size="4">SPEDISCI PACCO</font></a></td></tr></table></td>
 				</tr>
 				<tr>
 					<td width="100%" align="center" colspan="2"><table width="80%" align="center"><tr><td align="center"><a id="mappa6" href="#" data-role="button" data-theme="d"><font size="4">TRASPORTA PACCO</font></a></td></tr></table></td>
@@ -1726,7 +1781,7 @@
         
         <div data-role=page id="win2" data-add-back-btn=true class="div2a">
             <audio id="successChat" src="/android_asset/www/sound/new_chat.mp3" type="audio/mpeg" ></audio>
-			<audio id="successArrivo" src="/android_asset/www/sound/bell.mp3" type="audio/mpeg" ></audio>
+			<audio id="successArrivo" src="/android_asset/www/sound/button.mp3" type="audio/mpeg" ></audio>
 			
 			<div data-role="header" data-theme="c" data-position="fixed" data-tap-toggle="false" class="div4">
 				
@@ -1998,7 +2053,7 @@
 					<td width="5px" align="right" valign="center">&nbsp;
 						
 					</td>
-					<td width="160px" align="left" valign="center">
+					<td width="220px" align="center" valign="center">
 						<table align="left" border="0" width="100%" valign="center">
 							<tr>
 								<td align="left" valign="center">
@@ -2011,7 +2066,7 @@
 											</tr>
 										</table>
 									</div>
-									<a id="pass1" href="#" style="display:none"><img id="pass1img" src="img/1_verde.png" width="50px"></a>&nbsp;<a id="pass2" href="#" style="display:none"><img id="pass2img" src="img/2_verde.png" width="50px"></a>&nbsp;<a id="pass3" href="#" style="display:none"><img id="pass3img" src="img/3_verde.png" width="50px"></a>
+									<a id="pass1" href="#" style="display:none"><img id="pass1img" src="img/1_verde.png" width="50px"></a>&nbsp;&nbsp;<a id="pass2" href="#" style="display:none"><img id="pass2img" src="img/2_verde.png" width="50px"></a>&nbsp;&nbsp;<a id="pass3" href="#" style="display:none"><img id="pass3img" src="img/3_verde.png" width="50px"></a>
 								</td>
 								<!--<td align="right" valign="center">
 									<a id="puntina" href="#" data-theme="b" style="display:none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/ico_verde_post.png" width="45px" ></a>&nbsp;&nbsp;
@@ -2021,12 +2076,12 @@
 						</table>
 					</td>
 					<td width="5px" align="right">&nbsp;
-						
-					</td>
-					<td width="65px" align="left" valign="center">
 						<a id="lista" href="#" style="display:none"><img id="#" src="img/ico_verde_post.png" width="50px"></a>
-						<!--<a id="puntina" href="#" data-theme="b" style="display:none"><img src="img/ico_verde_post.png" width="50px" ></a>-->
 					</td>
+					<!--<td width="65px" align="left" valign="center">
+						
+						
+					</td>-->
 					
 				</tr>
 				
@@ -2109,7 +2164,7 @@
 			
 			<table border="0" hight="100px"><tr><td><br><br></td></tr></table>
 			
-			<form name="formia" action="entra.asp" method="post">
+			<!--<form name="formia0" action="entra.asp" method="post">-->
 			
 			<table width="90%" align="center" class="tabella">
 				<tr>
@@ -2143,11 +2198,6 @@
 			
 				<tr>
 					<td width="100%" align="center" colspan="2">
-						<a id="gratis" href="#" class="button_middle">&nbsp;&nbsp;Gratis&nbsp;&nbsp;</a><br><br>
-					</td>
-				</tr>
-				<tr>
-					<td width="100%" align="center" colspan="2">
 						<a id="offerta" href="#"  class="button_middle">&nbsp;&nbsp;Offerta libera&nbsp;&nbsp;</a><br>
 					</td>
 				</tr>
@@ -2162,7 +2212,7 @@
 					</td>
 				</tr>
 				<td width="100%" align="center" colspan="2">
-					<textarea id="soldini" name="soldini" cols="30" rows="10" class="scrivo" placeholder=""></textarea>
+					<textarea id="soldini2" name="soldini2" cols="30" rows="10" class="scrivo" placeholder=""></textarea>
 				</td>
 				
 
@@ -2185,7 +2235,7 @@
 			
 			<br><br><br><br><br> <br>  &nbsp;&nbsp;<br> &nbsp;&nbsp;<br>&nbsp;&nbsp;<br> <br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<br> &nbsp;&nbsp;<br>&nbsp;&nbsp;<br> <br>&nbsp;&nbsp;<br>
 			
-			</form>
+			<!--</form>-->
 			
 			</div>
 				</div>
@@ -2201,7 +2251,7 @@
 			<table width="98%" border="0" align="center" valign="center" class="div599" >
 				<tr>
 					<td width="100%" align="center" valign="center">
-						<a id="back33" href="#" class="button_middle">Invia offerta</a>
+						<a id="#" href="#" class="button_middle">Invia offerta</a>
 					</td>
 
 				</tr>
@@ -2233,22 +2283,37 @@
 				<div class="iScroller">
 			
 			<table border="0" hight="70px"><tr><td></td></tr></table>
+			
+			<form name="formia0" action="entra.asp" method="post">
+				
+			
+			<table width="100%" border="0" align="center" valign="center" class="div566" >
+				 <tr>
+					 <td width="100%" align="center">
+						 <table align="center" width="100px" height="100%">
+							 <tr>
+								 <td width="100px" align="center" valign="center">
+									 
+								 </td>
+							 </tr>
+							 
+						 </table>
+					 </td>
+				 </tr>
+				 
+			 </table>
 
 			
 			<table width="100%" align="center">
 				<tr>
 					<td width="100%" align="left" colspan="3">
-						<table width="90%" align="center" class="tabella">
+						<table width="90%" align="center" class="tabellaB">
 							<tr>
 								<td width="250px" align="center" valign="center">
-									<font size="4" color="#00b28c"><b><div id="pagina4richiesta">Richiesta</div></b></font><br>
+									<font size="4" color="#fff"><b><div>DETTAGLI SPEDIZIONE</div></b></font><br>
 								</td>
 							</tr>
-							<tr>
-								<td width="250px" align="left" valign="center">
-									<table border="0" hight="20px"><tr><td></td></tr></table>
-								</td>
-							</tr>
+							
 							<tr>
 								<td width="250px" align="left" valign="center">
 									<p id="quando"></p>
@@ -2269,64 +2334,38 @@
 									<p id="distanza"></p>
 								</td>
 							</tr>
+							
 							<tr>
-								<td width="100%" align="left" >
-									<b><font color='#00b28c'><div id="pagina4opzioni">Opzioni</div></font></b>
+								<td width="250px" align="left" valign="center">
+									<p id="grandezza">Piccolo/Medio/Grande</p>
+								</td>
+							</tr>
+							
+							<tr>
+								<td width="250px" align="center" valign="center">
+									<p id="codicesicurezza" style="display:none">AJ</p>
 								</td>
 							</tr>
 							<tr>
 								<td width="250px" align="left" valign="center">
-									<p id="passeggeri">Passeggeri: No</p>
+									
 								</td>
 							</tr>
 							<tr>
 								<td width="250px" align="left" valign="center">
-									<p id="fumatori">Fumatori:  No</p>
+									<table class='costoservizio' width='100%'><tr><td width='57%' align='center'><font size='3' color='#fff'><b>Rimborso per te</b></font></td><td width='43%' align='center' ><font size='3' color='#fff'><b><div id='costocalcolato'>0.00</div></b></font></td></tr></table>
 								</td>
 							</tr>
 							<tr>
 								<td width="250px" align="left" valign="center">
-									<p id="animali">Animali:  No</p>
+									<input type="hidden" data-role="none" name="soldini" id="soldini" value="">
 								</td>
 							</tr>
+							
 							<tr>
 								<td width="250px" align="left" valign="center">
-									<p id="meno18">Meno 18 anni:  No</p>
-								</td>
-							</tr>
-							<tr>
-								<td width="250px" align="left" valign="center">
-									<p id="disabili">Disabili:  No</p>
-								</td>
-							</tr>
-							<tr>
-								<td width="250px" align="left" valign="center">
-									<p id="bambini">Bambini:  No</p>
-								</td>
-							</tr>
-							<tr>
-								<td width="250px" align="left" valign="center">
-									<p id="wifi">WiFi:  No</p>
-								</td>
-							</tr>
-							<tr>
-								<td width="250px" align="left" valign="center">
-									<p id="portapacchi">Note:  --</p>
-								</td>
-							</tr>
-							<tr>
-								<td width="250px" align="left" valign="center">
-									<p id="rimorchio">Note:  --</p>
-								</td>
-							</tr>
-							<tr>
-								<td width="250px" align="left" valign="center">
-									<p id="bluetooth">Note:  --</p>
-								</td>
-							</tr>
-							<tr>
-								<td width="250px" align="left" valign="center">
-									<p id="note">Note:  --</p>
+									<!--<div id="code1" style="display:none"></div><div id="code2" style="display:none"></div><div id="code3" style="display:none"></div>-->
+									<a id="back33A" href="#" data-role="button" data-theme="b"><font size="4">RENDITI DISPONIBILE</font></a>
 								</td>
 							</tr>
 							
@@ -2335,85 +2374,101 @@
 									
 								</td>
 							</tr>
-							
+							<tr>
+								<table width="98%" border="0" align="center" valign="center" >
+									<tr>
+										<td width="40%" align="center" valign="center">
+											<!--<a id="risp1" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Rispondi</font></a>
+											 <a id="risp2" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Rispondi</font></a>
+											 <a id="risp3" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Rispondi</font></a>-->
+											
+											<a id="gps1" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Percorso</font></a>
+											<a id="gps22" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Percorso</font></a>
+											<a id="gps3" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Percorso</font></a>
+										</td>
+										
+										<td width="20%" align="center" valign="center">
+											<a id="cell1" style="display:none"><img src="img/ico_telephone.png" width="45"></a>
+											<a id="cell2" style="display:none"><img src="img/ico_telephone.png" width="45"></a>
+											<a id="cell3" style="display:none"><img src="img/ico_telephone.png" width="45"></a>
+										</td>
+										
+										<td width="20%" align="center" valign="center">
+											<a id="chat1" style="display:none"><font color="#fff"><img src="img/chat.png" width="45"></font></a>
+											<a id="chat2" style="display:none"><font color="#fff"><img src="img/chat.png" width="45"></font></a>
+											<a id="chat3" style="display:none"><font color="#fff"><img src="img/chat.png" width="45"></font></a>
+										</td>
+										
+										<td width="20%" align="center" valign="center">
+											<!--<a id="xchiudi1" href="#" style="display:none"><img src="img/ico_to_map.png" width="45"></a>
+											 <a id="xchiudi2" href="#" style="display:none"><img src="img/ico_to_map.png" width="45"></a>
+											 <a id="xchiudi3" href="#" style="display:none"><img src="img/ico_to_map.png" width="45"></a>-->
+											<a id="close1" style="display:none"><img src="img/ico_trash.png" width="45"></a>
+											<a id="close2" style="display:none"><img src="img/ico_trash.png" width="45"></a>
+											<a id="close3" style="display:none"><img src="img/ico_trash.png" width="45"></a>
+											
+											<a id="nascondi1" style="display:none"><img src="img/ico_trash.png" width="45"></a>
+											<a id="nascondi2" style="display:none"><img src="img/ico_trash.png" width="45"></a>
+											<a id="nascondi3" style="display:none"><img src="img/ico_trash.png" width="45"></a>
+										</td>
+										
+										<!--<td width="15%" align="center" valign="center">
+											
+											<a id="feedo1" style="display:none"><img src="img/ico_feedback.png" width="45"></a>
+											<a id="feedo2" style="display:none"><img src="img/ico_feedback.png" width="45"></a>
+											<a id="feedo3" style="display:none"><img src="img/ico_feedback.png" width="45"></a>
+										</td>-->
+									</tr>
+								</table>
+							</tr>
 							<tr>
 								<td width="250px" align="left" valign="center">
-									<div id="code1" style="display:none"></div><div id="code2" style="display:none"></div><div id="code3" style="display:none"></div>
+									
 								</td>
 							</tr>
 							
 							<tr>
 								<td width="250px" align="left" valign="center">
-									<table border="0" hight="60px"><tr><td></td></tr></table>
-								    <br><br><br><br><br><br><br>
+									<table id="pagamento" width="98%" border="0" align="center" valign="center" style="display:none">
+										<tr>
+											<td width="100%" align="center" valign="center">
+												<b><font size="4" color="fff"><div id="costocommissione">Costo commisione:</div></font></b>
+											</td>
+											<tr>
+										<tr>
+											<td width="100%" align="center" valign="center">
+												<a id='compracarta' href='#' data-role="button" data-theme="b"><font size="4">Paga con paypal</font></a>
+											</td>
+										<tr>
+											<tr>
+												<td width="100%" align="center" valign="center">
+													<img src='img/CC_Mastercard.jpg' width='50px'> <img src='img/CC_Visa.jpg' width='50px'> <img src='img/CC_PostePay.jpg' width='50px'> <img src='img/CC_VisaElectron.jpg' width='50px'>
+												</td>
+												<tr>
+									<table>
 								</td>
 							</tr>
 
 						</table>
 					</td>
 				</tr>
+				
+				</form>
 
 			</table>
 			
 				</div>
 			</div>
 			
-			<table id="zoccolo" width="100%" border="0" align="center" valign="center" class="div59" >
+			<!--<table id="zoccolo" width="100%" border="0" align="center" valign="center" class="div59" >
 				<tr>
 					<td algn="center" width="100%" align="center" valign="center">
 						
 					</td>
 				</tr>
-			</table>
+			</table>-->
 			
-			<table width="98%" border="0" align="center" valign="center" class="div599" >
-				<tr>
-					<td width="40%" align="center" valign="center">
-						<a id="risp1" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Rispondi</font></a>
-						<a id="risp2" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Rispondi</font></a>
-						<a id="risp3" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Rispondi</font></a>
-						
-						<a id="gps1" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Percorso</font></a>
-						<a id="gps22" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Percorso</font></a>
-						<a id="gps3" data-role="button" data-theme="b" class="custom-btn4R" style="display:none"><font color="#fff">Percorso</font></a>
-					</td>
-					
-					<td width="15%" align="center" valign="center">
-						<a id="cell1" style="display:none"><img src="img/ico_telephone.png" width="45"></a>
-						<a id="cell2" style="display:none"><img src="img/ico_telephone.png" width="45"></a>
-						<a id="cell3" style="display:none"><img src="img/ico_telephone.png" width="45"></a>
-					</td>
-					
-					<td width="15%" align="center" valign="center">
-						<a id="chat1" style="display:none"><font color="#fff"><img src="img/chat.png" width="45"></font></a>
-						<a id="chat2" style="display:none"><font color="#fff"><img src="img/chat.png" width="45"></font></a>
-						<a id="chat3" style="display:none"><font color="#fff"><img src="img/chat.png" width="45"></font></a>
-					</td>
-					
-					<td width="15%" align="center" valign="center">
-						<a id="xchiudi1" href="#" style="display:none"><img src="img/ico_to_map.png" width="45"></a>
-						<a id="xchiudi2" href="#" style="display:none"><img src="img/ico_to_map.png" width="45"></a>
-						<a id="xchiudi3" href="#" style="display:none"><img src="img/ico_to_map.png" width="45"></a>
-					</td>
 
-					<td width="15%" align="center" valign="center">
-						<a id="close1" style="display:none"><img src="img/ico_trash.png" width="45"></a>
-						<a id="close2" style="display:none"><img src="img/ico_trash.png" width="45"></a>
-						<a id="close3" style="display:none"><img src="img/ico_trash.png" width="45"></a>
-						
-						<a id="nascondi1" style="display:none"><img src="img/ico_trash.png" width="45"></a>
-						<a id="nascondi2" style="display:none"><img src="img/ico_trash.png" width="45"></a>
-						<a id="nascondi3" style="display:none"><img src="img/ico_trash.png" width="45"></a>
-						
-						<a id="feedo1" style="display:none"><img src="img/ico_feedback.png" width="45"></a>
-						<a id="feedo2" style="display:none"><img src="img/ico_feedback.png" width="45"></a>
-						<a id="feedo3" style="display:none"><img src="img/ico_feedback.png" width="45"></a>
-					</td>
-				</tr>
-			</table>
-			
-			
-			
 			<a href="#mypanelH" data-role=button id=btnpanel data-theme="b" style="display:none"></a>
 			
 			<div data-role="panel" id="mypanelH" style="overflow-y: scroll" data-position="right" data-display="overlay" width="100%" data-theme="b">
@@ -2595,14 +2650,14 @@
 								<td width="70%" align="center" valign="center" colspan="3">
 									<a id="prendifoto" href="#" data-role="button" data-theme="b" class="custom-btn3">Cambia foto</a>
 								</td>
-							</tr>-->
+							</tr>
 							
 							<tr>
 								
 								<td width="70%" align="center" valign="center" colspan="3">
 									<div id="stelle0"></div><br><br>
 								</td>
-							</tr>-->
+							</tr>
 							
 							<tr>
 								<td width="100%" align="center" valign="center" colspan="2">
@@ -2709,23 +2764,22 @@
 							</tr>
 							<tr>
 								<td width="100%" align="center" valign="center" colspan="2">&nbsp;
-									
+									<input type="hidden" data-role="none" name="targa" id="targa" value="0">
+									<input type="hidden" data-role="none" name="patente" id="patente" value="0">
+									<input type="hidden" data-role="none" name="patentemese" id="patentemese" value="0">
+									<input type="hidden" data-role="none" name="patenteanno" id="patenteanno" value="0">
 								</td>
 							</tr>
 							<tr>
 								<!--<td width="30%" align="center" valign="center">
 									<img src="img/500.png" width="40px"> <img src="img/smartb.png" width="30px">
-								 </td>-->
+								 </td>
 								
 								<td width="100%" align="center" valign="center" colspan="2">
 									<input type="text" data-role="none" name="targa" id="targa" value="" placeholder="Targa automezzo" class="scrivo2">
-								</td>
+								</td>-->
 							</tr>
-							<tr>
-								<td width="100%" align="center" valign="center" colspan="2">&nbsp;
-									
-								</td>
-							</tr>
+							
 							<!--<tr>
 								<td width="30%" align="center" valign="center">
 									<img src="img/nofumatori.png" width="30px"> <img src="img/sifumatori.png" width="30px">
@@ -2758,7 +2812,7 @@
 											</td>
 								</tr>
 							</tr>-->
-							<tr>
+							<!--<tr>
 								<td width="70%" align="center" valign="center">
 									<input type="text" data-role="none" name="patente" id="patente" value="" placeholder="Numero Patente" class="scrivo2">
 								</td>
@@ -2780,7 +2834,6 @@
 							</tr>
 							<tr>
 								<td width="70%" align="center" valign="center">
-									<!--<input type="text" data-role="none" name="patenteanno" id="patenteanno" value="" placeholder="Anno di scadenza" class="scrivo">-->
 									<select id="patenteanno" name="patenteanno" data-theme="b">
 										<option value="2016">Anno di Scadenza</option>
 										<option value="2017">2017</option>
@@ -2794,12 +2847,8 @@
 										<option value="2025">2025</option>
 									</select>
 								</td>
-							</tr>
-							<tr>
-								<td width="100%" align="center" valign="center" colspan="2">&nbsp;
-									
-								</td>
-							</tr>
+							</tr>-->
+
 							<tr>
 								<td width="100%" align="center" colspan="2">
 									<a id="back333" href="#" data-role="button" data-theme="d">OK</a><br><br>
